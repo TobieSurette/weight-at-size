@@ -1,6 +1,6 @@
 # Tools and theory for modeling weight-at-size
 
-Southern Gulf of Saint Lawrence Snow crab weight-at-size data and studies
+A set of tools and background theory for modeling fish and crustacean weight-at-size from southern Gulf of Saint Lawrence data.
 
 # Background
 
