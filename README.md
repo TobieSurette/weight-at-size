@@ -1,4 +1,4 @@
-# snow-crab-weight-at-size
+# Tools and theory for modeling weight-at-size
 
 Southern Gulf of Saint Lawrence Snow crab weight-at-size data and studies
 
