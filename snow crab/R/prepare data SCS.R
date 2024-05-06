@@ -73,9 +73,41 @@ legend("topleft",
        pch = 19, col = c("red", "purple", "green3", "blue"), border = "grey50")
 box(col = "grey50") 
 
+# Intact crabs by maturity and shell condition:
+ix <- which((z$missing.legs == "**********") & (z$comments == "*"))
+plot(z$carapace.width[ix], z$weight[ix], pch = 19, cex = 0.3, xlim = c(95, 135), xaxs = "i", ylim = c(200, 900), yaxs = "i", xlab = "", ylab = "")
+grid()
+iy <- which((z$missing.legs == "**********") & (z$comments == "*") & !z$maturity)
+points(z$carapace.width[iy], z$weight[iy], pch = 19, cex = 0.6, col = "green3")
+iy <- which((z$missing.legs == "**********") & z$maturity & (z$shell.condition >= 3))
+points(z$carapace.width[iy], z$weight[iy], pch = 19, cex = .6, col = "red2")
+iy <- which((z$missing.legs == "**********") & z$maturity & (z$shell.condition < 3))
+points(z$carapace.width[iy], z$weight[iy], pch = 19, cex = 0.6, col = "blue")
+iy <- which((z$missing.legs != "**********") & z$maturity & (z$shell.condition >= 3))
+points(z$carapace.width[iy], z$weight[iy], pch = 19, cex = 0.8, col = "purple")
+mtext("Carapace width (mm)", 1, 2.5, cex = 1.25, font = 2)
+mtext("Weight (g)", 2, 2.5, cex = 1.25, font = 2)
+box(col = "grey50") 
+
+z <- z[iy, ]
+
+
 # BUGS output:
-zz <- z[z$maturity, ]
+iy <- which((z$missing.legs == "**********") & (z$comments == "*") & (z$shell.condition >= 3))
+iy <- which((z$missing.legs == "**********") & (z$comments == "*"))
+iy <- which((z$missing.legs %in% c("**********", "1*********", "*****1****")) & (z$comments == "*"))
+iy <- which((apply(R, 1, sum) == 0) & (z$comments == "*"))
 clc()
-paste0(c("x = c(", round(z$carapace.width,1), ")"), collapse = ",")
-paste0(c("w = c(", round(z$weight), ")"), collapse = ",")
+cat(paste0("n = ", length(iy), ", \n"))
+cat(paste0("theta.outlier = c(1,1), \n"))
+cat(paste0(c("log.x = c(", round(log(z$carapace.width[iy]),3), ")"), collapse = ","), "\n")
+cat(paste0(c("log.w = c(", round(log(z$weight[iy]),3), ")"), collapse = ","), "\n")
+cat(paste0(c("maturity = c(", round(z$maturity[iy]), ")"), collapse = ","), "\n")
+cat(paste0(c("hardness = c(", round((z$shell.condition[iy] >= 3)), ")"), collapse = ","), "\n")
+
+clc()
+cat("missing = structure(.Data = c(\n")
+cat("    ", paste0(paste0(as.numeric(t(M[iy, ])), collapse = ","), ",\n"))
+cat("), \n    .Dim = ", paste0("c(", length(iy), ",", 5, "))"))
+
 
