@@ -1,0 +1,37 @@
+# Tables
+
+
+
+(ref:tabletaxa) Species and groups of species used the analyses. Each species code, species common English name and scientific name appear in this Table. Whether a species is subjected to sex-dependent sampling appears in the last column of the Table.
+
+```{r tabletaxa, results="asis"}
+t.df <- data.frame(
+  species.code=40,
+  species.english="American Plaice",
+  species.latin="Hippoglossoides platessoides",
+  species.sex="Yes"
+  )
+
+csas_table(t.df,
+           caption = "(ref:tabletaxa)",
+           format="latex"
+)
+```
+
+\clearpage
+
+
+(ref:tableresults1) Length-weight relationship parameters for species captured in the southern Gulf of St. Lawrence.
+
+```{r tableresults1, results="asis"}
+library(gulf)
+data("length.weight.coefficients")
+lw.df <- length.weight.coefficients
+oo <- order(lw.df$species, lw.df$sex)
+csas_table(lw.df[oo,],
+           caption = "(ref:tableresults1)",
+           format="latex"
+)
+```
+
+\clearpage
