@@ -1,0 +1,16 @@
+# Discussion
+
+The values of $a$ and $b$ parameters are used to flag erroneous lengths and weights measurements during data collection.
+
+The predicted weights obtained from the fitted model are used in computations of biomass indices based on individual length observations. 
+
+If the yearly changes in estimated values of $a$ and $b$ are auto-correlated, it may be indicative of gradual changes in condition. An alternative modelling approach that accounts for this auto-correlation should be investigated.
+
+The availability of a sufficient number of samples is key to estimating a meaningful length-weight relationship.
+
+Base 10 logarithm versus natural logarithm
+
+@Froese-etal-2014
+
+
+\clearpage

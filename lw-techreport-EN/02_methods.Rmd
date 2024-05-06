@@ -1,0 +1,57 @@
+# Methods
+
+The length-weight relationship we use is the following:
+\begin{equation}
+W = \alpha L^{\beta}
+\end{equation}
+where $W$ is weight, $L$ is length, and $a$ and $b$ are the allometric parameters to be estimated.
+
+Individual fish observations of length-weight pairs are used to estimate model parameters.
+
+The units of length and weight will influence the parameter values, so in all analyses presented, lengths are in centimeters and weights are in grams.
+
+## Hierarchical approach
+A minimum number of samples must be available in order to meaningfully estimate $a$ and $b$ parameters. The available length information must also cover a wide range of lengths so that estimated parameter values can be used in predictions.
+
+Hierarchical approach
+
+1. overall relationship, sex-independent and time-independent
+2. sex-dependent relationship
+3. time-dependent relationship
+4. sex- and time-dependent relationship
+
+
+## Mixed effects models
+
+To estimate sex and year effects on the length-weight relationship, a mixed effects framework is adopted to analyse the available individual observations of fish length-weight pairs. For species with no sex-specific observations, yearly effects are added to both parameters:
+
+\begin{equation}
+W =  \left(\alpha +\delta^{\alpha}_{y}\right)L^{\left(\beta +\delta^{\beta}_{y} \right)}
+\end{equation}
+
+For species with sex-specific observations, yearly and sex effects are added to both parameters:
+
+\begin{equation}
+W =  \left(\alpha +\delta^{\alpha}_{ys}\right)L^{\left(\beta +\delta^{\beta}_{ys} \right)}
+\end{equation}
+
+
+The model is implemented as a Generalized Mixed Effects Model with a Gamma error distribution and a log link:
+
+\begin{equation}
+\mu = exp(\beta_{0} + \beta_{1}l + \epsilon)
+\end{equation}
+
+
+## Southern Gulf of St. Lawrence ecosystem survey
+
+Observations of fish and invertebrate taxa collected during the annual southern Gulf of St. Lawrence September survey are used to obtain taxon-specific estimates of the length-weight relationship. 
+
+
+The taxa used in the analyses appear in Table \@ref(tab:tabletaxa).
+
+
+### Annual update of length-weight parameter estimates
+
+
+

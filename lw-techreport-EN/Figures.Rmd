@@ -1,0 +1,10 @@
+# Figures
+
+<!-- LW -->
+(ref:caption-fig1) Example of a length-weight relationship.
+```{r fig1, fig.cap="(ref:caption-fig1)"}
+knitr::include_graphics("./figure/LW-example.png")
+```
+
+\clearpage
+
