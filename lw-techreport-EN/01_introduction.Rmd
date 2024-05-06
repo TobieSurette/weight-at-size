@@ -1,0 +1,23 @@
+# Introduction {#sec:introduction}
+
+Length measurements are easier to obtain than weight measurements.
+
+The precision associated with weight measurements has changed over the survey period, whereas the length measurements are more comparable.
+
+Length-weight relationships are used to predict weight based on length observations. This is an essential analytical component of many stock assessments since commercial landings and many reference points are in weight units.
+
+The relationship between length and weight is dictated by the cubic nature of growth in three dimensions. Allometric models estimate the relationship between length and weight.
+
+Mixed effects models have been used to estimate length-weight relationship parameters by other practitioners [@Lai-Hesler-2004; @Ma-etal-2017].
+
+When year-specific estimates are desired, it is often the case that a length-weight relationship will be estimated using data for a specific year only. While this is a defensible method, it may be limited if not enough samples are available or available observations only cover a narrow range of lengths and weights. A superior alternative would be to use all available observations in the same model and obtain annual estimates whose uncertainty will reflect the data limitations.
+
+The protocol used in the annual September survey of the southern Gulf of St. Lawrence contains sex-specific sampling for species that exhibit sexual dimorphism in growth. As such, sex-dependent parameters should be derived for these species.
+
+We present a logical, statistically sound and reproducible framework to estimate length-weight relationship parameters, and apply it to observations of various fish and invertebrate taxa captured in the annual September ecosystem survey of the southern Gulf of St. Lawrence. 
+
+<!-- https://en.wikipedia.org/wiki/Allometry -->
+
+
+A cohesive approach is used to obtain length-weight relationship parameter estimates for taxa caught in the annual southern Gulf of St. Lawrence September survey. The approach utilises the number of available observations and the range of observed lengths and weights to determine where annual estimates can be derived with confidence. The sampling protocols used in the survey are incorporated in the framework so that sex-specific parameters can also be calculated when available data is available. When annual estimates can be meaningfully estimated, a single model is fitted to available observations and the parameter estimates are reported. The approach provides a robust and reproducible method that can be used to annually update length-weight relationship estimates.
+

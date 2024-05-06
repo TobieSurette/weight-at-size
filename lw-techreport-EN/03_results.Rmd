@@ -1,0 +1,12 @@
+# Results
+
+## Sex effects
+For species with known sexually dimorphic growth, sex-specific estimates are estimated.
+
+## Year effects
+
+
+## Species-specific model predictions
+
+Estimated length-weight relationship parameters can be found in Table \@ref(tab:tableresults1).
+
