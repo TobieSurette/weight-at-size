@@ -1,12 +1,13 @@
-#' @title Size-weight regression
+#' @title Allometric analysis
 #' 
-#' @description Functions to estimate weight-at-size coefficients. 
+#' @description Functions to estimate allometric coefficients from data.
 #' 
 #' @param x Size.
 #' @param y Weight.
-#' @param f Frequency of occurence for each (x,y) pair.
 #' @param precision Weight measurement precision. For a given precision \code{p}, weight obsrvervation \code{w}
 #'                  will be assumed to lie in the interval \code{[w-p/2, w+p/2]}.
+#' @param robust Logical value specifying whether to include a second error term for handling data outliers. Default is \code{FALSE}.
+#' @param plot Logical value specifying whether to plot the fitted model over the data observations. Default is \code{FALSE}.
 #' 
 #' @return A vector of \alpha and \beta coeffcients from the allometric relation $y = \alpha x^{\beta}$ will be returned.
 #' 
@@ -90,13 +91,12 @@ fit.allometric <- function(x, y, precision, robust = FALSE, plot = FALSE){
       theta <- optim(theta, fn = loglike.allometric, x = data$x, y = data$y, f = data$f, precision = data$precision, control = list(maxit = 2000, trace = 3))$par
    }
    
+   # Plot results:   
    if (plot == TRUE){
-      # Plot results:
       log.x <- seq(1, 5, len = 100)
       mu <- theta["log.alpha"] + theta["beta"] * log.x
       sigma <- exp(theta["log.sigma"])
 
-      
       plot(log(jitter(rep(data$x, times = data$f), amount = 0.5)), 
            log(jitter(rep(data$y, times = data$f), amount = 0.5)), 
            cex = 0.5, xlab = "size", ylab = "weight")
@@ -122,5 +122,3 @@ fit.allometric <- function(x, y, precision, robust = FALSE, plot = FALSE){
    
    return(theta)
 }
-
-  

@@ -3,10 +3,14 @@ library(gulf.graphics)
 
 # Load data:
 species(c(622,623,624,625,626,631,632))
-years <- 1970:2023
+years <- 201:2023
 data <- read.gulf.bio(year = years, species = 622, password = password)
 data <- data[which((data$weight >= 1) & (data$weight <= 100)), ]
 data <- data[which(data$length > 0), ]
+
+# Plot size-weight data:
+plot(log(jitter(data$length, amount = 0.5)), log(jitter(data$weight, amount = 0.5)))
+abline(-6.9, 3, lwd = 2, col = "red")
 
 # Source allometric function:
 source("R/weight.at.size.R")
@@ -30,9 +34,6 @@ mtext("Allometric regression with extra error", 3, 0.5, font = 2, cex = 1.25)
 fit.allometric(data$length, data$weight, robust = TRUE, precision = data$precision, plot = TRUE)
 mtext("Allometric regression with precision and extra error", 3, 0.5, font = 2, cex = 1.25)
 
-# Plot size-weight data:
-plot(log(jitter(data$length, amount = 0.5)), log(jitter(data$weight, amount = 0.5)))
-abline(-6.9, 3, lwd = 2, col = "red")
 
 # Evaluate precision of weight measurements through the years:
 t <- table(year(data$date), data$weight %% 10)
