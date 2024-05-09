@@ -21,3 +21,5 @@ We present a logical, statistically sound and reproducible framework to estimate
 
 A cohesive approach is used to obtain length-weight relationship parameter estimates for taxa caught in the annual southern Gulf of St. Lawrence September survey. The approach utilises the number of available observations and the range of observed lengths and weights to determine where annual estimates can be derived with confidence. The sampling protocols used in the survey are incorporated in the framework so that sex-specific parameters can also be calculated when available data is available. When annual estimates can be meaningfully estimated, a single model is fitted to available observations and the parameter estimates are reported. The approach provides a robust and reproducible method that can be used to annually update length-weight relationship estimates.
 
+
+Relevant literature citations [@Kulbicki-etal-2005; @Froese-2006; @Froese-etal-2011; @Jin-etal-2015; @Hajjej-2016; @Aydin-2018; @Yin-etal-2022; @Pauly-etal-2022].

@@ -168,8 +168,7 @@ Moncton, New Brunswick, E1C 5K4, Canada}
 %   {\par}
 % 
 %%%%% Main document %%%%%
-\hypertarget{sec:introduction}{%
-\section{Introduction}\label{sec:introduction}}
+\section{Introduction}\label{sec:introduction}
 
 Length measurements are easier to obtain than weight measurements.
 
@@ -179,7 +178,7 @@ Length-weight relationships are used to predict weight based on length observati
 
 The relationship between length and weight is dictated by the cubic nature of growth in three dimensions. Allometric models estimate the relationship between length and weight.
 
-Mixed effects models have been used to estimate length-weight relationship parameters by other practitioners (\protect\hyperlink{ref-Lai-Hesler-2004}{Lai and Helser 2004}; \protect\hyperlink{ref-Ma-etal-2017}{Ma et al. 2017}).
+Mixed effects models have been used to estimate length-weight relationship parameters by other practitioners (\citeproc{ref-Lai-Hesler-2004}{Lai and Helser 2004}; \citeproc{ref-Ma-etal-2017}{Ma et al. 2017}).
 
 When year-specific estimates are desired, it is often the case that a length-weight relationship will be estimated using data for a specific year only. While this is a defensible method, it may be limited if not enough samples are available or available observations only cover a narrow range of lengths and weights. A superior alternative would be to use all available observations in the same model and obtain annual estimates whose uncertainty will reflect the data limitations.
 
@@ -189,8 +188,9 @@ We present a logical, statistically sound and reproducible framework to estimate
 
 A cohesive approach is used to obtain length-weight relationship parameter estimates for taxa caught in the annual southern Gulf of St.~Lawrence September survey. The approach utilises the number of available observations and the range of observed lengths and weights to determine where annual estimates can be derived with confidence. The sampling protocols used in the survey are incorporated in the framework so that sex-specific parameters can also be calculated when available data is available. When annual estimates can be meaningfully estimated, a single model is fitted to available observations and the parameter estimates are reported. The approach provides a robust and reproducible method that can be used to annually update length-weight relationship estimates.
 
-\hypertarget{methods}{%
-\section{Methods}\label{methods}}
+Relevant literature citations (\citeproc{ref-Yin-etal-2022}{Yin et al. 200AD}; \citeproc{ref-Kulbicki-etal-2005}{Kulbicki et al. 2005}; \citeproc{ref-Froese-2006}{Froese 2006}; \citeproc{ref-Froese-etal-2011}{Froese et al. 2011}; \citeproc{ref-Jin-etal-2015}{Jin et al. 2015}; \citeproc{ref-Hajjej-2016}{Hajjej et al. 2016}; \citeproc{ref-Aydin-2018}{Aydin 2018}; \citeproc{ref-Pauly-etal-2022}{Pauly et al. 2022}).
+
+\section{Methods}\label{methods}
 
 The length-weight relationship we use is the following: \begin{equation}
 W = \alpha L^{\beta}
@@ -199,8 +199,7 @@ Individual fish observations of length-weight pairs are used to estimate model p
 
 The units of length and weight will influence the parameter values, so in all analyses presented, lengths are in centimeters and weights are in grams.
 
-\hypertarget{hierarchical-approach}{%
-\subsection{Hierarchical approach}\label{hierarchical-approach}}
+\subsection{Hierarchical approach}\label{hierarchical-approach}
 
 A minimum number of samples must be available in order to meaningfully estimate \(a\) and \(b\) parameters. The available length information must also cover a wide range of lengths so that estimated parameter values can be used in predictions.
 
@@ -217,8 +216,7 @@ Hierarchical approach
 \item
   sex- and time-dependent relationship
 \end{enumerate}
-\hypertarget{mixed-effects-models}{%
-\subsection{Mixed effects models}\label{mixed-effects-models}}
+\subsection{Mixed effects models}\label{mixed-effects-models}
 
 To estimate sex and year effects on the length-weight relationship, a mixed effects framework is adopted to analyse the available individual observations of fish length-weight pairs. For species with no sex-specific observations, yearly effects are added to both parameters:
 \begin{equation}
@@ -232,34 +230,27 @@ The model is implemented as a Generalized Mixed Effects Model with a Gamma error
 \begin{equation}
 \mu = exp(\beta_{0} + \beta_{1}l + \epsilon)
 \end{equation}
-\hypertarget{southern-gulf-of-st.-lawrence-ecosystem-survey}{%
-\subsection{Southern Gulf of St.~Lawrence ecosystem survey}\label{southern-gulf-of-st.-lawrence-ecosystem-survey}}
+\subsection{Southern Gulf of St.~Lawrence ecosystem survey}\label{southern-gulf-of-st.-lawrence-ecosystem-survey}
 
 Observations of fish and invertebrate taxa collected during the annual southern Gulf of St.~Lawrence September survey are used to obtain taxon-specific estimates of the length-weight relationship.
 
 The taxa used in the analyses appear in Table~\ref{tab:tabletaxa}.
 
-\hypertarget{annual-update-of-length-weight-parameter-estimates}{%
-\subsubsection{Annual update of length-weight parameter estimates}\label{annual-update-of-length-weight-parameter-estimates}}
+\subsubsection{Annual update of length-weight parameter estimates}\label{annual-update-of-length-weight-parameter-estimates}
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+\section{Results}\label{results}
 
-\hypertarget{sex-effects}{%
-\subsection{Sex effects}\label{sex-effects}}
+\subsection{Sex effects}\label{sex-effects}
 
 For species with known sexually dimorphic growth, sex-specific estimates are estimated.
 
-\hypertarget{year-effects}{%
-\subsection{Year effects}\label{year-effects}}
+\subsection{Year effects}\label{year-effects}
 
-\hypertarget{species-specific-model-predictions}{%
-\subsection{Species-specific model predictions}\label{species-specific-model-predictions}}
+\subsection{Species-specific model predictions}\label{species-specific-model-predictions}
 
 Estimated length-weight relationship parameters can be found in Table~\ref{tab:tableresults1}.
 
-\hypertarget{discussion}{%
-\section{Discussion}\label{discussion}}
+\section{Discussion}\label{discussion}
 
 The values of \(a\) and \(b\) parameters are used to flag erroneous lengths and weights measurements during data collection.
 
@@ -271,12 +262,11 @@ The availability of a sufficient number of samples is key to estimating a meanin
 
 Base 10 logarithm versus natural logarithm
 
-Froese et al. (\protect\hyperlink{ref-Froese-etal-2014}{2014})
+Froese et al. (\citeproc{ref-Froese-etal-2014}{2014})
 
 \clearpage
 
-\hypertarget{tables}{%
-\section{Tables}\label{tables}}
+\section{Tables}\label{tables}
 
 
 \begin{longtable}[t]{rlll} \caption{\label{tab:tabletaxa}Species and groups of species used the analyses. Each species code, species common English name and scientific name appear in this Table. Whether a species is subjected to sex-dependent sampling appears in the last column of the Table.}\\ \toprule species.code & species.english & species.latin & species.sex\\ \midrule \endfirsthead \multicolumn{4}{l}{\textit{... Continued from previous page}} \\ \hline \caption*{}\\ \toprule species.code & species.english & species.latin & species.sex\\ \midrule \endhead \hline \multicolumn{4}{l}{\textit{Continued on next page ...}} \\ \endfoot \bottomrule \endlastfoot 40 & American Plaice & Hippoglossoides platessoides & Yes\\* \end{longtable}
@@ -288,8 +278,7 @@ Froese et al. (\protect\hyperlink{ref-Froese-etal-2014}{2014})
 
 \clearpage
 
-\hypertarget{figures}{%
-\section{Figures}\label{figures}}
+\section{Figures}\label{figures}
 
 
 \begin{figure}[htb]
@@ -304,21 +293,44 @@ Froese et al. (\protect\hyperlink{ref-Froese-etal-2014}{2014})
 
 \clearpage
 
-\hypertarget{references}{%
-\section{References}\label{references}}
+\section{References}\label{references}
 
 \noindent \vspace{-2em} \setlength{\parindent}{-0.2in} \setlength{\leftskip}{0.2in} \setlength{\parskip}{8pt}
 
-\hypertarget{refs}{}
+\phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\leavevmode{\hypertarget{ref-Froese-etal-2014}{}}%
+\bibitem[\citeproctext]{ref-Aydin-2018}
+Aydin, M. 2018. Length-weight relationships and condition factors of five crab species ({D}ecapoda) in the {B}lack {S}ea. Pakistan J. Zool. 50: 1519--1524.
+
+\bibitem[\citeproctext]{ref-Froese-2006}
+Froese, R. 2006. Cube law, condition factor and weight--length relationships: History, meta-analysis and recommendations. J. Appl. Ichthyol. 22: 241--253.
+
+\bibitem[\citeproctext]{ref-Froese-etal-2014}
 Froese, R., Thorson, J.T., and Reyes Jr, R.B. 2014. \link{https://doi.org/10.1111/jai.12299}{A bayesian approach for estimating length-weight relationships in fishes}. Journal of Applied Ichthyology 30(1): 78--85.
 
-\leavevmode{\hypertarget{ref-Lai-Hesler-2004}{}}%
+\bibitem[\citeproctext]{ref-Froese-etal-2011}
+Froese, R., Tsikliras, A.C., and Stergiou, K.I. 2011. EDITORIAL NOTE ON WEIGHT--LENGTH RELATIONS OF FISHES. ACTA ICHTHYOLOGICA ET PISCATORIA 41: 261--263.
+
+\bibitem[\citeproctext]{ref-Hajjej-2016}
+Hajjej, G., Sley, A., and Jarboui, O. 2016. Morphometrics and length weight relationship in the blue swimming crab, portunus segnis ({D}ecapoda, {B}rachyura) from the gulf of {G}abes, {T}unisia. International Journal of Engineering and Applied Sciences 3: 2394--3661.
+
+\bibitem[\citeproctext]{ref-Jin-etal-2015}
+Jin, S., Yan, H., Xiaodongand Zhang, and Fan, W. 2015. Weight--length relationships and {F}ulton's condition factors of skipjack tuna ({K}atsuwonus pelamis) in the western and central {P}acific {O}cean. PeerJ 3.
+
+\bibitem[\citeproctext]{ref-Kulbicki-etal-2005}
+Kulbicki, M., Guillemot, N., and Amand, M. 2005. A general approach to length-weight relationships for {N}ew {C}aledonian lagoon fishes. Cybium 29: 235--252.
+
+\bibitem[\citeproctext]{ref-Lai-Hesler-2004}
 Lai, H.-L., and Helser, T. 2004. \link{https://doi.org/10.1016/j.fishres.2004.08.014}{Linear mixed-effects models for weight--length relationships}. Fisheries Research 70(2): 377--387.
 
-\leavevmode{\hypertarget{ref-Ma-etal-2017}{}}%
-Ma, Q., Y., J., and Ren, Y. 2017. \link{https://doi.org/10.1371/journal.pone.0171811}{Linear mixed-effects models to describe length-weight relationships for yellow croaker (\emph{{L}arimichthys polyactis}) along the north coast of china}. PLoS One.
+\bibitem[\citeproctext]{ref-Ma-etal-2017}
+Ma, Q., Y., J., and Ren, Y. 2017. \link{https://doi.org/10.1371/journal.pone.0171811}{Linear mixed-effects models to describe length-weight relationships for yellow croaker (\emph{{L}arimichthys polyactis}) along the north coast of {C}hina}. PLoS One.
+
+\bibitem[\citeproctext]{ref-Pauly-etal-2022}
+Pauly, D., Matsushige, L., Malacane, J., Hay, A., Chu, E., and Warren, M. 2022. Length--weight relationships and growth parameters of common and leafy seadragons ({S}yngnathidae) from a public aquarium. Fishes.
+
+\bibitem[\citeproctext]{ref-Yin-etal-2022}
+Yin, Y., Sameoto, J.A., Keith, D.M., and Mills Flemming, J. 200AD. Improving estimation of length--weight relationships using spatiotemporal models. Can. J. Fish. Aquat. Sci. 79: 1896--1910.
 
 \end{CSLReferences}
 \end{document}
