@@ -1,13 +1,19 @@
 # Tools and theory for modeling weight-at-size
 
-A set of tools and background theory for modeling fish and crustacean weight-at-size from southern Gulf of Saint Lawrence data.
+Tools, analyses and background theory for modeling fish and crustacean weight-at-size from southern Gulf of Saint Lawrence data.
 
 # Background
 
-Weight-at-size equations are very common in animal observational studies. As their name implies, they serve to predict an animal's weight, which is generally harder to measure, to some convenient size measurement. These equations can be used to convert size-frequencies of a sampled population to equivalent weights. They can also be used to characterize different species or populations, or as controls to evaluate animal condition, since the weight of an animal also reflects some aspects of its health.
+Weight-at-size equations are used to model the expected weights over some group of animals, such as a population in a region at a certain time of year.
+
+Many factors influence an animal's weight at a given size. Major factors include sex, health, maturity, and the stage of its reproductive cycle. Some of these factors varyh though time, both seasonally and interannually, and region. 
+This means that sampling location and season can have an influence on the resulting observations. In addition, there are factors which incluence the *observed* weight and makes it deviate from the *true* weight. The following diagram provides an overall view of the causal factors influencing weight meaasurement data.
+
+![image](https://github.com/TobieSurette/weight-at-size/assets/14942142/bd76d48c-7b92-4ed6-ba37-8818494bf190)
+
+Weights obtained though application a weight-at-size equation to size-frequency data are generally more convenient than measuring each animal individually. These equations can be used to convert size-frequencies of a sampled population to equivalent weights. They can also be used to characterize different species or populations, or as controls to evaluate animal condition, since the weight of an animal also reflects some aspects of its health.
 
 The form of the equation is the allometric relation $w = \alpha x^\beta$, where $w$ is the animal's weight, $\alpha$ is the scaling coefficient, $x$ is a measure of animal size and $\beta$ is the dimensional scaling coefficient.
-
 
 # September multispecies survey data
 
