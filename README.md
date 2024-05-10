@@ -29,4 +29,11 @@ The second issue is the occurence of outliers in the data. *Ad hoc* deletion of 
 
 We treat the outliers as arising from an extra error source, i.e. extra variation in the weight from some perturbation such as misreading the balance scale or a transcription error. 
 
+# Analytical approach
+
+
+
 Formally we include in our model a second error distribution about the regression mean. The first error distribution models 
+
+
+
