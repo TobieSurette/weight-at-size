@@ -2,24 +2,33 @@ library(gulf.data)
 library(gulf.graphics)
 
 # Load data:
+years <- 2010:2023
 species(c(622,623,624,625,626,631,632))
-years <- 201:2023
 data <- read.gulf.bio(year = years, species = 622, password = password)
 data <- data[which((data$weight >= 1) & (data$weight <= 100)), ]
 data <- data[which(data$length > 0), ]
-
-# Plot size-weight data:
-plot(log(jitter(data$length, amount = 0.5)), log(jitter(data$weight, amount = 0.5)))
-abline(-6.9, 3, lwd = 2, col = "red")
-
-# Source allometric function:
-source("R/weight.at.size.R")
 
 # Define weight data precision:
 data$year <- year(data$date)
 data$precision <- 1
 data$precision[data$year < 2000] <- 5
 data$precision[data$year %in% 2000:2011] <- 2
+
+# Plot size-weight data:
+plot(log(jitter(data$length, amount = 0.5)), log(jitter(data$weight, amount = 0.5)))
+abline(log(0.01749603), 2.12330328, lwd = 2, col = "red")
+
+# Residual plot:
+r <- log(jitter(data$weight, amount = 0.5)) - 2.12330 * log(jitter(data$length, amount = 0.5)) - log(0.01749603)
+plot(r)
+hline(0, lwd = 2, col = "red")
+
+# Daubed shanny:
+tmp <- read.gulf.bio(year = years, species = 632, password = password)
+points(log(jitter(tmp$length, amount = 0.5)), log(jitter(tmp$weight, amount = 0.5)), pch = 21, bg = "red2", cex = 0.6)
+
+# Source allometric function:
+source("R/weight.at.size.R")
 
 # Test model fitting procedures:
 fit.allometric(data$length, data$weight, robust = FALSE, plot = TRUE)
@@ -33,7 +42,6 @@ mtext("Allometric regression with extra error", 3, 0.5, font = 2, cex = 1.25)
 
 fit.allometric(data$length, data$weight, robust = TRUE, precision = data$precision, plot = TRUE)
 mtext("Allometric regression with precision and extra error", 3, 0.5, font = 2, cex = 1.25)
-
 
 # Evaluate precision of weight measurements through the years:
 t <- table(year(data$date), data$weight %% 10)
