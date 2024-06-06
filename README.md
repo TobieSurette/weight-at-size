@@ -24,16 +24,13 @@ There are additional factors adding noise to weight measurements:
 - data transcription errors
 - species misclassifications
 - damaged or mangled animals
+- presence of prey in stomach and regurgitation of stomach contents
 
-The second issue is the occurence of outliers in the data. *Ad hoc* deletion of problem data works to a certain extent, especially when we have a large, precisely measured dataset, but we wish to have a general method to deal with outliers.
+The second issue is the occurence of outliers in the data. *Ad hoc* deletion of problem data works to a certain extent, especially when we have a large, precisely measured dataset, but we wish to have a general method that can deal with outliers without removing them.
 
-We treat the outliers as arising from an extra error source, i.e. extra variation in the weight from some perturbation such as misreading the balance scale or a transcription error. 
+We treat the outliers as arising from an extra error source, i.e. extra variation in the weight from some perturbation such as misreading the balance scale or a transcription error.
 
 # Analytical approach
 
-
-
 Formally we include in our model a second error distribution about the regression mean. The first error distribution models 
-
-
 
