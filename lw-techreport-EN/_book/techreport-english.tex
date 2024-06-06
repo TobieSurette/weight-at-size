@@ -66,13 +66,13 @@
 
 % New definitions: Title, year, report number, authors
 % Protect lower case words (i.e., species names) in \Addlcwords{}, in "TechReport.sty"
-\newcommand{\trTitle}{A flexible approach to estimating appropriate length-weight relationship parameters for fish and invertebrate taxa, with application to observations from the annual southern Gulf of St.~Lawrence ecosystem September survey (1971-2023)}
+\newcommand{\trTitle}{A mixed-effects approach to estimating appropriate length-weight relationship parameters for fish and invertebrate taxa, with application to observations from the annual southern Gulf of St.~Lawrence ecosystem September survey (1971-2023)}
 \newcommand{\trYear}{2023}
 \newcommand{\trReportNum}{nnn}
 % Optional
 \newcommand{\trAuthFootA}{Email: \link{mailto:Daniel.Ricard@dfo-mpo.gc.ca}{\nolinkurl{Daniel.Ricard@dfo-mpo.gc.ca}} \textbar{} telephone: (506) 377-9527}
-\newcommand{\trAuthsLong}{Daniel Ricard, Quentin Stoyel, Tobie Surette, Jolene Sutton, François Turcotte and Pablo Vergara}
-\newcommand{\trAuthsBack}{Ricard, D., Stoyel, Q., Surette, T., Sutton, J., Turcotte, F. and Vergara, P.}
+\newcommand{\trAuthsLong}{Daniel Ricard and Tobie Surette}
+\newcommand{\trAuthsBack}{Ricard, D. and Surette, T.}
 
 % New definition: Address
 \newcommand{\trAddy}{Science Branch\\
@@ -188,7 +188,27 @@ We present a logical, statistically sound and reproducible framework to estimate
 
 A cohesive approach is used to obtain length-weight relationship parameter estimates for taxa caught in the annual southern Gulf of St.~Lawrence September survey. The approach utilises the number of available observations and the range of observed lengths and weights to determine where annual estimates can be derived with confidence. The sampling protocols used in the survey are incorporated in the framework so that sex-specific parameters can also be calculated when available data is available. When annual estimates can be meaningfully estimated, a single model is fitted to available observations and the parameter estimates are reported. The approach provides a robust and reproducible method that can be used to annually update length-weight relationship estimates.
 
-Relevant literature citations (\citeproc{ref-Yin-etal-2022}{Yin et al. 200AD}; \citeproc{ref-Kulbicki-etal-2005}{Kulbicki et al. 2005}; \citeproc{ref-Froese-2006}{Froese 2006}; \citeproc{ref-Froese-etal-2011}{Froese et al. 2011}; \citeproc{ref-Jin-etal-2015}{Jin et al. 2015}; \citeproc{ref-Hajjej-2016}{Hajjej et al. 2016}; \citeproc{ref-Aydin-2018}{Aydin 2018}; \citeproc{ref-Pauly-etal-2022}{Pauly et al. 2022}).
+Relevant literature citations (\citeproc{ref-Kulbicki-etal-2005}{Kulbicki et al. 2005}; \citeproc{ref-Froese-2006}{Froese 2006}; \citeproc{ref-Froese-etal-2011}{Froese et al. 2011}; \citeproc{ref-Jin-etal-2015}{Jin et al. 2015}; \citeproc{ref-Hajjej-2016}{Hajjej et al. 2016}; \citeproc{ref-Aydin-2018}{Aydin 2018}; \citeproc{ref-Pauly-etal-2022}{Pauly et al. 2022}; \citeproc{ref-Yin-etal-2022}{Yin et al. 2022}).
+
+issues to deal with
+\begin{itemize}
+
+\item
+  small sample size
+\item
+  small size values and weight measurement precision
+\item
+  limited size range
+\item
+  taxonomic misidentification which requires grouping, this changes with time
+\item
+  mismeasurement and transcription errors
+\end{itemize}
+uses: 1 - predict weight from size - list of taxa, annual weight-at-size predictor for observations in September
+
+2 - flag outliers when entering data
+
+do we need to include the stratification and/or a catch-weighted estimation?
 
 \section{Methods}\label{methods}
 
@@ -354,7 +374,7 @@ Ma, Q., Y., J., and Ren, Y. 2017. \link{https://doi.org/10.1371/journal.pone.017
 Pauly, D., Matsushige, L., Malacane, J., Hay, A., Chu, E., and Warren, M. 2022. Length--weight relationships and growth parameters of common and leafy seadragons ({S}yngnathidae) from a public aquarium. Fishes.
 
 \bibitem[\citeproctext]{ref-Yin-etal-2022}
-Yin, Y., Sameoto, J.A., Keith, D.M., and Mills Flemming, J. 200AD. Improving estimation of length--weight relationships using spatiotemporal models. Can. J. Fish. Aquat. Sci. 79: 1896--1910.
+Yin, Y., Sameoto, J.A., Keith, D.M., and Mills Flemming, J. 2022. Improving estimation of length--weight relationships using spatiotemporal models. Can. J. Fish. Aquat. Sci. 79: 1896--1910.
 
 \end{CSLReferences}
 \end{document}

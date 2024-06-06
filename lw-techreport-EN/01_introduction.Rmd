@@ -23,3 +23,38 @@ A cohesive approach is used to obtain length-weight relationship parameter estim
 
 
 Relevant literature citations [@Kulbicki-etal-2005; @Froese-2006; @Froese-etal-2011; @Jin-etal-2015; @Hajjej-2016; @Aydin-2018; @Yin-etal-2022; @Pauly-etal-2022].
+
+
+
+
+
+
+
+
+
+
+
+
+issues to deal with 
+
+- small sample size
+- small size values and weight measurement precision
+- limited size range
+- taxonomic misidentification which requires grouping, this changes with time
+- mismeasurement and transcription errors
+
+
+
+
+
+
+
+
+uses:
+1 - predict weight from size
+  - list of taxa, annual weight-at-size predictor for observations in September
+
+2 - flag outliers when entering data
+
+do we need to include the stratification and/or a catch-weighted estimation?
+

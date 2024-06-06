@@ -6,8 +6,10 @@ Tools, analyses and background theory for modeling fish and crustacean weight-at
 
 Weight-at-size equations are used to model the expected weights over some group of animals, such as a population in a region at a certain time of year.
 
-Many factors influence an animal's weight at a given size. Major factors include sex, health, maturity, and the stage of its reproductive cycle. Some of these factors varyh though time, both seasonally and interannually, and region. 
-This means that sampling location and season can have an influence on the resulting observations. In addition, there are factors which incluence the *observed* weight and makes it deviate from the *true* weight. The following diagram provides an overall view of the causal factors influencing weight meaasurement data.
+Many factors influence an animal's weight at a given size. Major factors include sex, health, maturity, and the stage of its reproductive cycle. Some of these factors vary though time, both seasonally, interannually and regionally. 
+This means that sampling location and season can have an influence on the resulting observations. In addition, there are factors which influence the *observed* weight and makes it deviate from the *true* weight. The following diagram provides an overall view of the causal factors influencing weight measurement data.
+
+The green boxes indicate true size and true weight, which are the predictor and response variables of interest. The yellow boxes indicate the corresponding observed quantities as measured by rulers and scales. The blue boxes are factors known to influence the measurement of size and weight. The white boxes are factors that influence an individual's true weight and that may be known.
 
 ![image](https://github.com/TobieSurette/weight-at-size/assets/14942142/bd76d48c-7b92-4ed6-ba37-8818494bf190)
 

@@ -7,73 +7,140 @@ library(gulf)
 x <- read.card(species=10, card.type="bio")
 dim(x)
 
-idx <- which(!is.na(x$length) & !is.na(x$weight) & x$length<999 & x$length>0 & x$weight>0 & x$sex %in% c(1,2))
+idx <- which(!is.na(x$length) & !is.na(x$weight) & x$length<999 & x$length>0 & x$weight>0)
 
 length(idx)
 
 x <- x[idx,]
 
+x[which(x$length>100 & x$weight<5000),]
+plot(jitter(x$length, amount = 0.5), x$weight, cex=0.1, pch=19)
 
-x$sex <- ifelse(x$sex %in% c(0,9), 9, x$sex)
+plot(log(jitter(x$length, amount = 0.5)), log(jitter(x$weight,amount=0.5)), cex=0.1, pch=19)
 
-## average weight-at-length over time
-
-library(ggplot2)
-g <- ggplot(data=x, aes(x=length,y=weight,col=sex)) +
-  geom_point()
-g
-
-my.agg <- aggregate(weight~length+year, x, mean)
-
-g <- ggplot(data=my.agg[which(my.agg$length%in%c(50)),], aes(x=year,y=weight,group=length)) +
-  geom_point() + geom_line()
-g
-
-g <- ggplot(data=x[which(x$length%in%c(30)),], aes(x=year,y=weight,group=year)) +
-  geom_boxplot() + facet_grid(rows=vars(length), scales="free") +
-  ylim(150,350)
-g
-
-
-x$year <- factor(x$year, levels=sort(unique(x$year)))#,ordered=TRUE
-x$sex <- factor(x$sex, levels=sort(unique(x$sex)))#,ordered=TRUE
 
 x$llength <- log(x$length)
 x$lweight <- log(x$weight)
 
-plot(x$llength, x$lweight)
-abline(a=-5,b=3, col="red")
+lm1 <- lm(lweight~llength, data=x)
+
+plot(log(jitter(x$length, amount = 0.5)), log(jitter(x$weight,amount=0.5)), cex=0.1, pch=19)
+abline(a=coef(lm1)[1], b=coef(lm1)[2], col="red")
+
+x$residuals <- (x$lweight-predict(lm1))
+boxplot(residuals~llength, data=x, ylim=c(-0.5,0.5))
+abline(h=0, col="red")
+
+boxplot(residuals~year, data=x, ylim=c(-0.5,0.5))
+abline(h=0, col="red")
+
+boxplot(residuals~stratum, data=x, ylim=c(-0.5,0.5))
+abline(h=0, col="red")
+
+boxplot(residuals~sex, data=x, ylim=c(-0.5,0.5))
+abline(h=0, col="red")
+
+
+lm2 <- lm(lweight~llength+as.factor(year), data=x)
+summary(lm2)
+boxplot(residuals(lm2)~year, data=x, ylim=c(-0.5,0.5))
+abline(h=0, col="red")
+
+n.df <- data.frame(
+  year=as.factor(1970:2023),
+  llength=log(50)
+)
+n.df$pred.lm2 <- exp(predict(lm2, newdata=n.df))
+plot(pred.lm2~year, data=n.df, pch=19, type='b')
+
+idx <- which(x$length==50)
+agg <- aggregate(weight~year, x[idx,], mean)
+lines(n.df$year, agg$weight)
+
+
+est.df2 <- data.frame(
+  year=1970:2023,
+  alpha=c(coef(lm2)[1], coef(lm2)[1]+coef(lm3)[c(3:55)]),
+  beta=c(coef(lm2)[2])
+)
+
+
+
+lm3 <- lm(lweight~llength*as.factor(year), data=x)
+summary(lm3)
+anova(lm2,lm3)
+
+n.df$pred.lm3 <- exp(predict(lm3, newdata=n.df))
+plot(pred.lm3~year, data=n.df, pch=19, type='b')
+lines(pred.lm2~year, data=n.df, pch=19, type='b')
+lines(n.df$year, agg$weight,col="red")
+
+
+AIC(lm2)
+AIC(lm3)
+
+est.df <- data.frame(
+year=1970:2023,
+  alpha=c(coef(lm3)[1], coef(lm3)[1]+coef(lm3)[c(3:55)]),
+beta=c(coef(lm3)[2], coef(lm3)[2]+coef(lm3)[c(56:108)])
+)
+plot(alpha~year, data=est.df,type='b',pch=19)
+plot(beta~year, data=est.df,type='b',pch=19)
+
+
+idx.1979 <- which(x$year==1979)
+plot(x[idx.1979,"llength"],x[idx.1979,"lweight"])
+idx.1980 <- which(x$year==1980)
+points(x[idx.1980,"llength"],x[idx.1980,"lweight"], col="red",pch=19)
+
+
+for(ll in 10:100){
+  #ll<-10
+  temp <- data.frame(est.df$alpha + (est.df$beta*log(ll)))
+
+  names(temp) <- paste0("pred.",ll)
+  est.df <- cbind(est.df, temp)
+}
+
+vars <- paste0("pred.",10:100)
+image(as.matrix(est.df[vars]))
+
+
+plot(log(c(10,100)), c(0,10), type='n')
+for(ii in 1:nrow(est.df)){
+  #ii<-1
+  lines(log(10:100), est.df[ii,vars])
+}
+
+mycols <- rainbow(nrow(est.df))
+plot(c(10,100), exp(c(0,9.5)), type='n')
+for(ii in 1:nrow(est.df)){
+  #ii<-1
+  lines(10:100, exp(est.df[ii,vars]),col=mycols[ii])
+}
+
 
 library(lme4)
-my.lm <- lm(lweight~llength, data=x)
-# my.lm <- lm(lweight~llength+year, data=x) ## nonsense
-
-my.lme.1 <- lmer(lweight~(1|year)+llength,
-               data=x)
-summary(my.lme.1)
-
-x$resids <- residuals(my.lme.1, type="pearson")
-
-idx <- which(abs(x$resids)>2)
-x[idx,]
-
-boxplot(resids~year, data=x)
-
-my.lme.2 <- lmer(lweight~llength+sex+(llength|year),
-               data=x,
-               subset=year %in% c(1996,2000,2004,2023)
-               )
-
-
+my.lme.2 <- lmer(lweight~(1|year)+llength,
+                 data=x)
 summary(my.lme.2)
 ranef(my.lme.2)
+coef(my.lme.2)
 
+plot(coef(my.lme.2)$year[,1], est.df2$alpha)
 
-out.df <- data.frame(
-  species=10,
-  size.type="fork length",
-  size.unit="centimeter",
-  weight.unit="kilogram")
+my.lme.3 <- lmer(lweight~(llength|year)+llength,
+                 data=x)
+summary(my.lme.3)
+ranef(my.lme.3)
 
+plot(c(10,100), exp(c(0,9.5)), type='n')
+for(ii in 1:length(1970:2023)){
+  # ii <- 1
+  alpha <- fixef(my.lme.3)[1] + ranef(my.lme.3)$year[ii,1]
+beta <- fixef(my.lme.3)[2] + ranef(my.lme.3)$year[ii,2]
 
+lines(10:100, exp(alpha+(beta*log(10:100))), col=mycols[ii])
+
+}
 
