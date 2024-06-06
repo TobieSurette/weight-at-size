@@ -1,11 +1,11 @@
 ---
-title: "A hierarchical mixed effects approach to estimating the length-weight relationship parameters of fish and invertebrate taxa, with application to observations from the annual southern Gulf of St. Lawrence ecosystem September survey (1971-2023)"
+title: "A flexible approach to estimating appropriate length-weight relationship parameters for fish and invertebrate taxa, with application to observations from the annual southern Gulf of St. Lawrence ecosystem September survey (1971-2023)"
 french_title: ""
 year: 2023
 report_number: nnn
 author: |
-  Daniel Ricard, Quentin Stoyel, Tobie Surette and Pablo Vergara
-author_list: "Ricard, D., Stoyel, Q., Surette, T. and Vergara, P."
+  Daniel Ricard, Quentin Stoyel, Tobie Surette, Jolene Sutton, François Turcotte and Pablo Vergara
+author_list: "Ricard, D., Stoyel, Q., Surette, T., Sutton, J., Turcotte, F. and Vergara, P."
 region: Gulf Region
 french_region: Région du Golfe
 isbn: ""

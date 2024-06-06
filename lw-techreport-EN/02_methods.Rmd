@@ -1,5 +1,13 @@
 # Methods
 
+## Exploratory analyses
+
+The empirical weight-at-size estimates are presented for the list of taxa in Table \@ref(tab:tabletaxa). For each taxon, a figure showing the distribution of measured weight at given lengths over time. 
+
+
+
+## Allometric function
+
 The length-weight relationship we use is the following:
 \begin{equation}
 W = \alpha L^{\beta}
@@ -10,15 +18,23 @@ Individual fish observations of length-weight pairs are used to estimate model p
 
 The units of length and weight will influence the parameter values, so in all analyses presented, lengths are in centimeters and weights are in grams.
 
-## Hierarchical approach
+
+## Sequential approach
+
+For each taxon examined, the number of available paired observations of weight and size, and the range of their observed measurements, will determine whether a more complex model can be estimated.
+
+
 A minimum number of samples must be available in order to meaningfully estimate $a$ and $b$ parameters. The available length information must also cover a wide range of lengths so that estimated parameter values can be used in predictions.
 
-Hierarchical approach
 
-1. overall relationship, sex-independent and time-independent
-2. sex-dependent relationship
-3. time-dependent relationship
-4. sex- and time-dependent relationship
+Sequential approach
+
+1. Full Model: sex- and time-dependent relationship
+2. time-dependent relationship
+3. sex-dependent relationship
+4. overall relationship, sex-independent and time-independent
+
+The models considered can be found in Table \@ref(tablemodels).
 
 
 ## Mixed effects models
@@ -36,22 +52,20 @@ W =  \left(\alpha +\delta^{\alpha}_{ys}\right)L^{\left(\beta +\delta^{\beta}_{ys
 \end{equation}
 
 
-The model is implemented as a Generalized Mixed Effects Model with a Gamma error distribution and a log link:
-
-\begin{equation}
-\mu = exp(\beta_{0} + \beta_{1}l + \epsilon)
-\end{equation}
-
+Models are implemented using the *lme4* R package.
 
 ## Southern Gulf of St. Lawrence ecosystem survey
 
 Observations of fish and invertebrate taxa collected during the annual southern Gulf of St. Lawrence September survey are used to obtain taxon-specific estimates of the length-weight relationship. 
 
-
 The taxa used in the analyses appear in Table \@ref(tab:tabletaxa).
-
 
 ### Annual update of length-weight parameter estimates
 
+The analyses presented herein are encapsulated in an R function that allows for an annual update of the estimated values for each taxon.
+
+
+## Estimates obtained from SAS 
+A SAS script was developed by scientists at Fisheries and Oceans Canada to estimate the parameters of the relationship between weight and length. This script manually removed outliers for different taxa and also assigns each taxon to the type of estimates that will be calculated. The values derived from this script can be found in Table \@ref(tab:SASestimates) (Appendix \@ref(app:first-appendix))
 
 
