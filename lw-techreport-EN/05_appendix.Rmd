@@ -7,7 +7,20 @@ After that, all subsequent sections will be turned into appendices. -->
 
 \clearpage
 
-# THE FIRST APPENDIX {#app:first-appendix}
+# SAS estimates {#app:first-appendix}
+
+(ref:SASestimates) Length-weight relationship parameters estimated in SAS.
+
+```{r SASestimates, results="asis"}
+library(gulf)
+data("length.weight.coefficients")
+lw.df <- length.weight.coefficients
+oo <- order(lw.df$species, lw.df$sex)
+csas_table(lw.df[oo,],
+           caption = "(ref:SASestimates)",
+           format="latex"
+)
+```
 
 
 <!-- At the end of your appendices add: -->

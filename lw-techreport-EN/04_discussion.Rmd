@@ -8,9 +8,8 @@ If the yearly changes in estimated values of $a$ and $b$ are auto-correlated, it
 
 The availability of a sufficient number of samples is key to estimating a meaningful length-weight relationship.
 
-Base 10 logarithm versus natural logarithm
+Discuss the use of base 10 logarithm versus natural logarithm
 
 @Froese-etal-2014
-
 
 \clearpage
