@@ -11,6 +11,31 @@ The second group of data are specific to snow crab. Major factors influencing sn
 | ENS Trap study   | ENS1997       | 1997-1998 | Data from eastern Nova Scotia for a a morphometric comparison study with snow crab from Japan.    | 
 | Snow crab survey | SCS2013       | 2013-2014 | Data taken on board the snow crab survey in the southern Gulf of St. Lawrence in 2013 and 2014.   | 
 
+## PEI Trap study
+
+### Metadata
+
+| Variable          | Description                                         |                               
+| ----------------- | --------------------------------------------------- |
+| `area`            | Study area (PEI).                                   | 
+| `date`            | Sampling date.                                      | 
+| `sampler`         | Sampler name(s).                                    | 
+| `crab.number`	    | Specimen number.                                    | 
+| `sex`             | Sex (1 = male).                                     | 
+| `maturity`        | Maturity ("immature" or "mature")                   | 
+| `shell.condition`	| Carapace condition (1-5).                           |	
+| `missing.legs`	  | Missing leg pattern (1 = missing, 2 = regenerated). | 
+| `carapace.width`	| Carapace width (millimeters).                       | 
+| `chela.length`    | Claw length (millimeters).                          | 
+| `chela.height`    | Claw height (millimeters).                          | 
+| `abdomen.width`	  | Width of the fifth abdominal segment (millimeters). | 
+| `moult.stage` 	  |	Moult stage ("C" only).                             |
+| `weight`	        | Crab weight (grams).                                |	
+| `claw.weight`	    | Claw wet weight (grams).                            |
+| `claw.weight.dry`	|	Claw dry weight (grams).                            |
+| `claw.colour`	    |	Claw dry weight (grams).                            |
+| `claw.hardness`	  | Claw hardness ("soft", "medium" or "hard").         |
+
 ## ENS Trap study
 
 ### Metadata
@@ -20,8 +45,8 @@ The second group of data are specific to snow crab. Major factors influencing sn
 | `zone`            | Snow crab fishing area (CFAs 20, 21 or 23).         | 
 | `date`            | Sampling date.                                      | 
 | `sampler`         | Sampler name(s).                                    | 
-| `sex`             | Sex (1 = male).                                     | 
 | `crab.number`	    | Specimen number.                                    | 
+| `sex`             | Sex (1 = male).                                     | 
 | `shell.condition`	| Carapace condition (1-5).                           |	
 | `missing.legs`	  | Missing leg pattern (1 = missing, 2 = regenerated). | 
 | `carapace.width`	| Carapace width (millimeters).                       | 
