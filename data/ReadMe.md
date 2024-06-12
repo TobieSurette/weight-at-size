@@ -7,11 +7,11 @@ The second group of data are specific to snow crab. Major factors influencing sn
 
 |   Study          | Study ID      | Period    | Description                                                                                       |
 | ---------------- | ------------- | --------- | ------------------------------------------------------------------------------------------------- |
-| PEI Trap study   | PEI1986       |  1986     | Recovered data from an old trap study in Prince Edward Island.                                    | 
+| PEI study        | PEI1986       |  1986     | Recovered data from an old trawl and trap study near Prince Edward Island.                        | 
 | ENS Trap study   | ENS1997       | 1997-1998 | Data from eastern Nova Scotia for a a morphometric comparison study with snow crab from Japan.    | 
 | Snow crab survey | SCS2013       | 2013-2014 | Data taken on board the snow crab survey in the southern Gulf of St. Lawrence in 2013 and 2014.   | 
 
-## PEI Trap study
+## PEI study
 
 Samples were gathered using a 20-meter Nephrops trawl and an experimental trap survey (6 by 6-foot rectangular traps) in the southwestern Gulf of St. Lawrence in July of 1986. The sample contains about 300 male crab of different maturities and molt categories. Crab sizes are mainly 90 mm carapace width and larger. Crab which lost legs during the sampling process were discarded. 
 
