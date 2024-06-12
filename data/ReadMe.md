@@ -13,6 +13,12 @@ The second group of data are specific to snow crab. Major factors influencing sn
 
 ## PEI Trap study
 
+Samples were gathered using a 20-meter Nephrops trawl and an experimental trap survey (6 by 6-foot rectangular traps) in the southwestern Gulf of St. Lawrence in July of 1986. The sample contains about 300 male crab of different maturities and molt categories. Crab sizes are mainly 90 mm carapace width and larger. Crab which lost legs during the sampling process were discarded. 
+
+### References
+
+Chiasson, Y., Mallet, P., Moriyasu, M. 1989. Size-weight relation of male snow crab (Chionoecetes opilio) in the southwestern Gulf of St. Lawrence. Canadian Atlantic Fisheries Scientific Advisory Committee. CAFSAC Working document 89.
+
 ### Metadata
 
 | Variable          | Description                                         |                               
