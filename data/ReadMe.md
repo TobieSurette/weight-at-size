@@ -17,7 +17,11 @@ Samples were gathered using a 20-meter Nephrops trawl and an experimental trap s
 
 ### References
 
-Chiasson, Y., Mallet, P., Moriyasu, M. 1989. Size-weight relation of male snow crab (Chionoecetes opilio) in the southwestern Gulf of St. Lawrence. Canadian Atlantic Fisheries Scientific Advisory Committee. CAFSAC Working document 89.
+Chiasson, Y., Mallet, P., Moriyasu, M. 1989. Size-weight relation of male snow crab (_Chionoecetes opilio_) in the southwestern Gulf of St. Lawrence. Canadian Atlantic Fisheries Scientific Advisory Committee. CAFSAC Working document 89.
+
+### Notes
+- The chelae were removed and weighed, then dried and reweighed. These correspond to the `claw.weight` and `claw.weight.dry` variables.
+- There is a marked difference between the dried chela weights between the new and old-shelled crab.
 
 ### Metadata
 
@@ -44,6 +48,12 @@ Chiasson, Y., Mallet, P., Moriyasu, M. 1989. Size-weight relation of male snow c
 
 ## ENS Trap study
 
+### Notes
+
+- All the chela size measurement variables morphometrically increase with maturity. Two distinct clouds (i.e. immature and mature) are visitble in all plots of chela size versus carapace width.
+- Carapace length is very nearly linear with carapace width.
+- Morphometric increases with maturity are clearly visible not only for chela height, but also in the dimensions for the second and third meruses. This implies that the relative weight contributions of the cheliped and walking legs change with maturation.
+
 ### Metadata
 
 | Variable          | Description                                         |                               
@@ -66,8 +76,5 @@ Chiasson, Y., Mallet, P., Moriyasu, M. 1989. Size-weight relation of male snow c
 | `merus.length.2`  | Width of the third merus (millimeters).             | 	
 | `durometer`       | Claw hardness from durometer gauge (0-100).         |	
 | `weight`	        | Crab weight (grams).                                |	
-
-
-
 
 
