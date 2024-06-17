@@ -87,6 +87,9 @@ iy <- which((z$missing.legs != "**********") & z$maturity & (z$shell.condition >
 points(z$carapace.width[iy], z$weight[iy], pch = 19, cex = 0.8, col = "purple")
 mtext("Carapace width (mm)", 1, 2.5, cex = 1.25, font = 2)
 mtext("Weight (g)", 2, 2.5, cex = 1.25, font = 2)
+legend("topleft", 
+       legend = c("Mature New", "Mature Old", "Immature New", "Immature Old"),
+       pch = 19, col = c("red", "purple", "green3", "blue"), border = "grey50")
 box(col = "grey50") 
 
 z <- z[iy, ]
@@ -98,16 +101,108 @@ iy <- which((z$missing.legs == "**********") & (z$comments == "*"))
 iy <- which((z$missing.legs %in% c("**********", "1*********", "*****1****")) & (z$comments == "*"))
 iy <- which((apply(R, 1, sum) == 0) & (z$comments == "*"))
 clc()
-cat(paste0("n = ", length(iy), ", \n"))
-cat(paste0("theta.outlier = c(1,1), \n"))
-cat(paste0(c("log.x = c(", round(log(z$carapace.width[iy]),3), ")"), collapse = ","), "\n")
-cat(paste0(c("log.w = c(", round(log(z$weight[iy]),3), ")"), collapse = ","), "\n")
-cat(paste0(c("maturity = c(", round(z$maturity[iy]), ")"), collapse = ","), "\n")
-cat(paste0(c("hardness = c(", round((z$shell.condition[iy] >= 3)), ")"), collapse = ","), "\n")
+file <- "data/SCS weight data.txt"
+cat("list(\n", file = file)
+cat(paste0("n = ", length(iy), ", \n"), file = file, append = TRUE)
+cat(paste0("theta.outlier = c(1,1), \n"), file = file, append = TRUE)
+cat("log.x = c(", paste0(round(log(z$carapace.width[iy]),3), collapse = ","), "),\n\n", file = file, append = TRUE)
+cat("log.w = c(", paste0(round(log(z$weight[iy]),3), collapse = ","), "),\n\n", file = file, append = TRUE)
+cat("maturity = c(", paste0(round(z$maturity[iy],3), collapse = ","), "),\n\n", file = file, append = TRUE)
+cat("hardness = c(", paste0(round((z$shell.condition[iy] >= 3)), collapse = ","), "),\n\n", file = file, append = TRUE)
+cat("missing = structure(.Data = c(\n", file = file, append = TRUE)
+cat("    ", paste0(paste0(as.numeric(t(M[iy, ])), collapse = ",")), file = file, append = TRUE)
+cat("), \n    .Dim = ", paste0("c(", length(iy), ",", 5, "))\n"), file = file, append = TRUE)
+cat(")", file = file, append = TRUE)
 
-clc()
-cat("missing = structure(.Data = c(\n")
-cat("    ", paste0(paste0(as.numeric(t(M[iy, ])), collapse = ","), ",\n"))
-cat("), \n    .Dim = ", paste0("c(", length(iy), ",", 5, "))"))
+zz <- z[iy,]
+# Residual analysis:
+res <- read.csv("results/SCS residuals.csv")
+
+
+plot(res$mean)
+z$julian <- julian(date(z))
+boxplot(res$mean ~ julian(date(zz)), ylim = c(-2, 2))
+hline(0, col = "red2", lwd = 2)
+
+boxplot(res$mean ~ week(date(zz)), ylim = c(-2, 2))
+hline(0, col = "red2", lwd = 2)
+
+boxplot(res$mean ~ round(zz$carapace.width), ylim = c(-1, 1))
+hline(0, col = "red2", lwd = 2)
+
+boxplot(res$mean[zz$maturity] ~ julian(date(zz[zz$maturity, ])), ylim = c(-2, 2))
+hline(0, col = "red2", lwd = 2)
+
+boxplot(res$mean[!zz$maturity] ~ julian(date(zz[!zz$maturity, ])), ylim = c(-2, 2))
+hline(0, col = "red2", lwd = 2)
+
+zz$hardness <- zz$shell.condition >= 3
+
+boxplot(res$mean[zz$hardness] ~ julian(date(zz[zz$hardness, ])), ylim = c(-2, 2))
+hline(0, col = "red2", lwd = 2)
+
+boxplot(res$mean[!zz$hardness] ~ julian(date(zz[!zz$hardness, ])), ylim = c(-2, 2))
+hline(0, col = "red2", lwd = 2)
+
+
+tmp <- aggregate(list(res = res$mean[!zz$hardness]), list(day = julian(date(zz[!zz$hardness, ]))), mean)
+
+fun <- function(x, a = 1, xp = 0) return(a*((1 / (x-xp)^b) - 1))
+t <- seq(0, 1, len = 1000)
+plot(t, fun(t, a = 1, b = 1), type = "l", ylim = c(0, 20))
+
+loglike <- function(theta, x, y){
+   mu <- theta["a"] * exp(-theta["b"] * (x-theta["xp"]))
+   return(sum((y - mu)^2))
+} 
+
+theta <- c(xp = 200, a = -0.1, b = 0.1)
+loglike(theta, tmp$day, tmp$res)
+theta <- optim(theta, loglike, x = tmp$day, y = tmp$res, control = list(trace = 3))$par
+
+theta <- c(xp = 230, a = -0.1, b = 0.07)
+plot(tmp$day, tmp$res)
+t <- seq(0, 360, len = 1000)
+lines(t, theta["a"] * exp(-theta["b"] * (t-theta["xp"])))
+
+
+boxplot(res$mean[zz$hardness] ~ round(zz$carapace.width[zz$hardness]), ylim = c(-1, 1))
+hline(0, col = "red2", lwd = 2)
+
+boxplot(res$mean[!zz$hardness] ~ round(zz$carapace.width[!zz$hardness]), ylim = c(-1, 1))
+hline(0, col = "red2", lwd = 2)
+
+boxplot(res$mean ~ year(date(zz)), ylim = c(-1, 1))
+hline(0, col = "red2", lwd = 2)
+
+# 
+tmp <- aggregate(list(res = res$mean[!zz$hardness]), 
+                 by = list(cw = round(zz$carapace.width[!zz$hardness]), julian = julian(date(zz))[!zz$hardness]),
+                 mean)
+ix <- which(tmp$res > 0)
+plot(tmp$julian[ix], tmp$cw[ix], pch = 21, bg = "grey60", cex = 1.5 * sqrt(tmp$res[ix]))
+points(tmp$julian[-ix], tmp$cw[-ix], pch = 21, bg = "red2", cex = 1.5 * sqrt(-tmp$res[-ix]))
+
+
+# Spatial residuals:
+library(gulf.spatial)
+tmp <- aggregate(list(res = res$mean), by = zz[c("date", "tow.id")], mean)
+s <- read.scsset(year = 2013:2014, valid = 1)
+
+ix <- match(tmp[c("date", "tow.id")], s[c("date", "tow.id")])
+s$res <- NA
+s$res[ix] <- tmp$res
+
+year <- 2013
+map.new()
+ix <- which(year(s) %in% year & (s$res > 0))
+points(lon(s)[ix], lat(s)[ix], cex = 1.5 * sqrt(s$res[ix]), pch = 21, bg = "grey60")
+ix <- which(year(s) %in% year & (s$res < 0))
+points(lon(s)[ix], lat(s)[ix], cex = 1.5 * sqrt(-s$res[ix]), pch = 21, bg = "red2")
+map("coast")
+box(col = "grey50")
+
+
+
 
 
