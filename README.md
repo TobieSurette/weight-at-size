@@ -39,6 +39,15 @@ The snow crab weight-at-size equation is based on indirectly estimating the cont
 - The weights contributions of each leg at each of the five different positions needs to be esitmated. Some legs are much smaller than others, e.g. the fourth and fifth walking legs, and the frequency of their absence may be low as well. We would expect that the uncertainty associated with the controbuitions would be high.
 - The inferrence opf the weight contribution of the central disc (body) wholly depends on being able to estimate the contributions of each of five pairs of walking legs.
 
+| maturity | hardness | cheliped | second leg | third leg | fourth leg | fifth leg |
+| :------: | :------: | :------: | :------:   | :------:  | :------:   | :------:  |      
+| immature | soft     |       10 |         44 |        42 |         39 |        31 |
+| immature | hard     |       15 |         24 |        25 |         22 |        19 |
+| mature   | soft     |      100 |        169 |       153 |        137 |       158 | 
+| mature   | hard     |      126 |        188 |       139 |        156 |       195 |
+
+- Note that the sample sizes for immature crab are much smaller, especially those with missing chelipeds and fifth walking legs.
+
 # September multispecies survey data
 
 The first issue is that the precision of weight measurements has varied over the survey. Precision of weight measurements depends on the balance scales being used at sea. For years prior to 2000, the precisions were generally about 5 grams. Formally this means that weight measurements were rounded to the nearest multiple of 5. From 2000 to 2010, the precision of weight values were generally about 2 grams, while weight values were about 1 gram from 2011 onward. 
