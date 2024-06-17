@@ -17,6 +17,28 @@ Weights obtained though application a weight-at-size equation to size-frequency 
 
 The form of the equation is the allometric relation $w = \alpha x^\beta$, where $w$ is the animal's weight, $\alpha$ is the scaling coefficient, $x$ is a measure of animal size and $\beta$ is the dimensional scaling coefficient.
 
+# Snow crab 
+
+The case for predicting indivdual weight for snow crab is interesting. Although the animal has a hard-shell which contrains a lot of the variability of factors observed in fish, there are important factors to consider. 
+
+## Maturity 
+
+The first factor to consider is that of **maturity**. Crab under a terminal moult at which crab undergo changes in shape. Among males, crab claws get larger and legs become longer. In other words, the volume of crab increases and we can expect the weight to increase accordingly.
+
+## Time-since moult
+
+The second factor to consider is the time that has elapsed since moulting. After moulting, the crab shell if softer and less thick. Within the shell, the muscle mass has yet to expand within the new shell, and it is filled with water. Thus, we expect that new-shelled crab would weight less than hard-shelled crab.
+
+## Missing legs
+
+The third factor, also ver important, is that snow crab comonly loose their limbs through predation and interaction or competition with other snow crab. Snow crab legs are very long (hence their other common name being _spider crab_) and thus each represent a notable proportion of the total body weight.
+
+## Approach 
+
+The snow crab weight-at-size equation is based on indirectly estimating the controbutions of each of the above effects on the average weights of snow crab in a sample. We make the following notes:
+- The weights contributions of each leg at each of the five different positions needs to be esitmated. Some legs are much smaller than others, e.g. the fourth and fifth walking legs, and the frequency of their absence may be low as well. We would expect that the uncertainty associated with the controbuitions would be high.
+- The inferrence opf the weight contribution of the central disc (body) wholly depends on being able to estimate the contributions of each of five pairs of walking legs.
+
 # September multispecies survey data
 
 The first issue is that the precision of weight measurements has varied over the survey. Precision of weight measurements depends on the balance scales being used at sea. For years prior to 2000, the precisions were generally about 5 grams. Formally this means that weight measurements were rounded to the nearest multiple of 5. From 2000 to 2010, the precision of weight values were generally about 2 grams, while weight values were about 1 gram from 2011 onward. 
