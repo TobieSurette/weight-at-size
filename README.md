@@ -39,14 +39,26 @@ The snow crab weight-at-size equation is based on indirectly estimating the cont
 - The weights contributions of each leg at each of the five different positions needs to be esitmated. Some legs are much smaller than others, e.g. the fourth and fifth walking legs, and the frequency of their absence may be low as well. We would expect that the uncertainty associated with the controbuitions would be high.
 - The inferrence opf the weight contribution of the central disc (body) wholly depends on being able to estimate the contributions of each of five pairs of walking legs.
 
-| maturity | hardness | cheliped | second leg | third leg | fourth leg | fifth leg |
-| :------: | :------: | :------: | :------:   | :------:  | :------:   | :------:  |      
-| immature | soft     |       10 |         44 |        42 |         39 |        31 |
-| immature | hard     |       15 |         24 |        25 |         22 |        19 |
-| mature   | soft     |      100 |        169 |       153 |        137 |       158 | 
-| mature   | hard     |      126 |        188 |       139 |        156 |       195 |
+**Dataset sample summary**: 
 
-- Note that the sample sizes for immature crab are much smaller, especially those with missing chelipeds and fifth walking legs.
+| Dataset  | year      | maturity | hardness | cheliped | second leg | third leg | fourth leg | fifth leg | sample size | 
+| :------: | :------:  | :------: | :------: | :------: | :------:   | :------:  | :------:   | :------:  | :------:    |        
+| PEI      | 1986-1987 | immature | soft     |        1 |          2 |         4 |          4 |         1 |          60 |
+| PEI      | 1986-1987 | immature | hard     |       13 |          2 |         3 |          6 |         4 |          24 |
+| PEI      | 1986-1987 | mature   | soft     |        3 |          5 |         2 |          3 |         3 |          76 |
+| PEI      | 1986-1987 | mature   | hard     |       67 |         30 |        22 |         15 |        10 |         142 |
+| ENS      | 1997-1998 | immature | soft     |       23 |         46 |        29 |         58 |        31 |         166 |
+| ENS      | 1997-1998 | immature | hard     |       37 |         66 |        50 |         31 |        66 |         261 |
+| ENS      | 1997-1998 | mature   | soft     |       23 |         42 |        28 |         24 |        26 |         329 |
+| ENS      | 1997-1998 | mature   | hard     |       42 |         81 |        79 |         54 |        62 |         387 |
+| RVS      | 2012-2017  | immature |          |    1889 |      3018 |       2796 |       2810 |      2941 |       17688 |
+| RVS      | 2012-2017  | mature   |          |    1133 |      1693 |       1500 |       1385 |      1502 |        6339 |
+| SCS      | 2013-2014 | immature | soft     |       10 |         44 |        42 |         39 |        31 |         816 |
+| SCS      | 2013-2014 | immature | hard     |       15 |         24 |        25 |         22 |        19 |         322 |
+| SCS      | 2013-2014 | mature   | soft     |      100 |        169 |       153 |        137 |       158 |        1664 |
+| SCS      | 2013-2014 | mature   | hard     |      126 |        188 |       139 |        156 |       195 |        1440 |
+
+- Note that for the SCS, the sample sizes for immature crab are much smaller, especially those with missing chelipeds and fifth walking legs.
 
 # September multispecies survey data
 
