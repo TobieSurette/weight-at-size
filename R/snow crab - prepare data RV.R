@@ -103,4 +103,23 @@ points(log(jitter(bio$length[ix], amount = 0.5)), r[ix], col = "green3", cex = 0
 ix <- apply(M == 1, 1, sum) == 3
 points(log(jitter(bio$length[ix], amount = 0.5)), r[ix], col = "blue", cex = 0.7)
 
+source("C:/Users/SuretteTJ/Desktop/github/gulf.data/R/maturity.R")
+bio$carapace.width <- bio$length
+bio$chela.height   <- bio$chela
+ix <- which(is.mature.scsbio(bio))
 
+plot(jitter(bio$length, amount = 0.5), jitter(bio$chela, amount = 0.5), 
+     xlim = c(0, 140), xaxs = "i", ylim = c(0, 45), yaxs = "i", cex = 0.2, xlab = "", ylab = "")
+points(jitter(bio$length[ix], amount = 0.5), jitter(bio$chela[ix], amount = 0.5), cex = 0.2, pch = 21, bg = "red")
+points(jitter(bio$length[-ix], amount = 0.5), jitter(bio$chela[-ix], amount = 0.5), cex = 0.2, pch = 21, bg = "green3")
+
+ix <- which(bio$weight == 1)
+
+ix <- which(is.mature.scsbio(bio))
+plot(jitter(bio$length, amount = 0.5), jitter(bio$weight, amount = 0.5), 
+     xlim = c(0, 140), xaxs = "i", ylim = c(0, 1000), yaxs = "i", cex = 0.2, xlab = "", ylab = "")
+points(jitter(bio$length[ix], amount = 0.5), jitter(bio$weight[ix], amount = 0.5), cex = 0.2, pch = 21, bg = "red")
+points(jitter(bio$length[-ix], amount = 0.5), jitter(bio$weight[-ix], amount = 0.5), cex = 0.2, pch = 21, bg = "green3")
+
+
+   
