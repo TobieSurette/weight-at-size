@@ -16,6 +16,14 @@ ix <- c(ix, grep("broke", tolower(bio$comment)))
 ix <- c(ix, grep("manque", tolower(bio$comment))) 
 bio <- bio[-ix, ]
 
+# Define variables:
+source("C:/Users/SuretteTJ/Desktop/github/gulf.data/R/maturity.R")
+bio$carapace.width <- bio$length
+bio$chela.height <- bio$chela
+bio$maturity <- is.mature.scsbio(bio)
+bio <- bio[which((bio$carapace.width >= 40) & (bio$carapace.width <= 150)), ]
+bio$julian <- julian(date(bio))
+
 # Fill-in missing leg data from comments:
 ix <- which(is.na(bio$missing.legs))
 bio$missing.legs[ix] <- missing.legs(bio$comment[ix])
@@ -29,22 +37,67 @@ bio <- bio[which(nchar(bio$missing.legs) == 10), ]
 ix <- which((year(bio$date) == 2014) & (julian(date(bio$date)) >= 263))
 bio <- bio[-ix, ]
 
-# Check chela data:
-table(year(bio$date), julian(date(bio$date)), is.na(bio$chela))
+# Remove data with invalid chela heights:
+plot(log(jitter(bio$length, amount = 0.5)), log(jitter(bio$chela, amount = 0.5)), 
+     xlim = c(3.68, 5), ylim = c(0, 4.5),xaxs = "i",  yaxs = "i", cex = 0.2,
+     xlab = "", ylab = "")
+abline(-2.8, 1.34, lty = "dashed", col = "red", lwd = 2)
+abline(-3.8, 1.34, lty = "dashed", col = "red", lwd = 2)
+mtext("Carapace width (mm)", 1, 2.5, font = 2, cex = 1.25)
+mtext("Chela height (mm)", 2, 2.5, font = 2, cex = 1.25)
+box(col = "grey50")
+ix <- which((log(bio$chela.height) - (1.34 * log(bio$carapace.width) - 2.8)) > 0 )
+iy <- which((log(bio$chela.height) - (1.34 * log(bio$carapace.width) - 3.8)) < 0 )
+points(log(bio$carapace.width)[ix], log(bio$chela.height)[ix], pch = 21, bg = "red", cex = 1)
+points(log(bio$carapace.width)[iy], log(bio$chela.height)[iy], pch = 21, bg = "red", cex = 1)
+bio <- bio[-c(ix, iy), ]
+bio <- bio[!is.na(bio$maturity), ]
 
-plot(jitter(bio$length, amount = 0.5), jitter(bio$chela, amount = 0.5), xlim = c(0, 140), xaxs = "i", ylim = c(0, 45), yaxs = "i", cex = 0.2)
-plot(jitter(bio$length, amount = 0.5), jitter(bio$chela, amount = 0.5), xlim = c(40, 140), xaxs = "i", ylim = c(0, 40), yaxs = "i", cex = 0.2)
+# Remove data with problematic comments:
+ix <- unique(c(grep("bar", tolower(bio$comment)), grep("alg", tolower(bio$comment)), grep("car", tolower(bio$comment))))
+bio <- bio[-ix, ]
 
-gbarplot(table(bio$length[is.na(bio$chela)]))
+# Remove problematic weight data:
+plot(log(jitter(bio$carapace.width, amount = 0.5)), 
+     log(jitter(bio$weight, amount = 0.5)), pch = 21, bg = "grey", cex = 0.2)
+abline(-7.4, 3, lty = "dashed", col = "red", lwd = 2)
+abline(-9.1, 3, lty = "dashed", col = "red", lwd = 2)
+ix <- which((log(bio$weight) - (3 * log(bio$carapace.width) - 7.4)) > 0)
+iy <- which((log(bio$weight) - (3 * log(bio$carapace.width) - 9.1)) < 0)
+bio <- bio[-c(ix, iy), ]
+points(log(jitter(bio$carapace.width, amount = 0.5))[iy], 
+       log(jitter(bio$weight, amount = 0.5))[iy], col = "red")
+
+
+# Parse missing leg pattern:
+M <- missing.legs(bio$missing.legs)
+R <- M == 2
+M <- M == 1
+
+M <- M[,1:5] + M[,6:10]
+
+# Export data:
+clc()
+iy <- which(apply(R, 1, sum) == 0)
+file <- "data/RVS weight data males.txt"
+cat("list(\n", file = file)
+cat(paste0("n = ", length(iy), ", \n"), file = file, append = TRUE)
+cat(paste0("theta.outlier = c(1,1), \n"), file = file, append = TRUE)
+cat("log.x = c(", paste0(round(log(bio$carapace.width[iy]),3), collapse = ","), "),\n\n", file = file, append = TRUE)
+cat("log.w = c(", paste0(round(log(bio$weight[iy]),3), collapse = ","), "),\n\n", file = file, append = TRUE)
+cat("maturity = c(", paste0(round(bio$maturity[iy]), collapse = ","), "),\n\n", file = file, append = TRUE)
+#cat("hardness = c(", paste0(round((bio$shell.condition[iy] >= 3)), collapse = ","), "),\n\n", file = file, append = TRUE)
+cat("missing = structure(.Data = c(\n", file = file, append = TRUE)
+cat("    ", paste0(paste0(as.numeric(t(M[iy, ])), collapse = ",")), file = file, append = TRUE)
+cat("), \n    .Dim = ", paste0("c(", length(iy), ",", 5, "))\n"), file = file, append = TRUE)
+cat(")", file = file, append = TRUE)
+
 
 # Check weight rounding pattern:
 gbarplot(table(bio$weight %% 10))
 
-# Parse missing leg pattern:
-M <- matrix(NA, nrow = nrow(bio), ncol = 10)
-tmp <- strsplit(bio$missing.legs, "")
-for (i in 1:10) M[, i] <- as.numeric(unlist(lapply(tmp, function(x) x[i])))
-M[is.na(M)] <- 0   
+
+
 
 plot(log(jitter(bio$length, amount = 0.5)), log(jitter(bio$weight, amount = 0.5)), cex = 0.3, xlim = c(2.5, 5))
 
@@ -103,23 +156,7 @@ points(log(jitter(bio$length[ix], amount = 0.5)), r[ix], col = "green3", cex = 0
 ix <- apply(M == 1, 1, sum) == 3
 points(log(jitter(bio$length[ix], amount = 0.5)), r[ix], col = "blue", cex = 0.7)
 
-source("C:/Users/SuretteTJ/Desktop/github/gulf.data/R/maturity.R")
-bio$carapace.width <- bio$length
-bio$chela.height   <- bio$chela
-ix <- which(is.mature.scsbio(bio))
 
-plot(jitter(bio$length, amount = 0.5), jitter(bio$chela, amount = 0.5), 
-     xlim = c(0, 140), xaxs = "i", ylim = c(0, 45), yaxs = "i", cex = 0.2, xlab = "", ylab = "")
-points(jitter(bio$length[ix], amount = 0.5), jitter(bio$chela[ix], amount = 0.5), cex = 0.2, pch = 21, bg = "red")
-points(jitter(bio$length[-ix], amount = 0.5), jitter(bio$chela[-ix], amount = 0.5), cex = 0.2, pch = 21, bg = "green3")
-
-ix <- which(bio$weight == 1)
-
-ix <- which(is.mature.scsbio(bio))
-plot(jitter(bio$length, amount = 0.5), jitter(bio$weight, amount = 0.5), 
-     xlim = c(0, 140), xaxs = "i", ylim = c(0, 1000), yaxs = "i", cex = 0.2, xlab = "", ylab = "")
-points(jitter(bio$length[ix], amount = 0.5), jitter(bio$weight[ix], amount = 0.5), cex = 0.2, pch = 21, bg = "red")
-points(jitter(bio$length[-ix], amount = 0.5), jitter(bio$weight[-ix], amount = 0.5), cex = 0.2, pch = 21, bg = "green3")
 
 
    
