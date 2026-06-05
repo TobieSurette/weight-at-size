@@ -1,35 +1,14 @@
 # Tables
 
-(ref:tablemodels) Models considered.
-
-```{r tablemodels, results="asis"}
-t.df <- data.frame(
-  model.number=1,
-  model.type=c("lm"),
-  formula=c("lweight~llength*year*sex"),
-  notes=c("Full model")
-)
-csas_table(t.df,
-           caption = "(ref:tablemodels)",
-           format="latex"
-)
-```
-
-\clearpage
-
-
-(ref:tabletaxa) Species and groups of species used the analyses. Each species code, species common English name and scientific name appear in this Table. Whether a species is subjected to sex-dependent sampling appears in the last column of the Table.
+(ref:tabletaxa) Species and groups of taxa used the analyses. Each species code, species common English name and scientific name appear in this Table. Whether a species is subjected to sex-dependent sampling, and whether size classes are assigned to a taxon, appear in the last two columns of the Table.
 
 ```{r tabletaxa, results="asis"}
-t.df <- data.frame(
-  species.code=40,
-  species.english="American Plaice",
-  species.latin="Hippoglossoides platessoides",
-  species.year="Yes",
-  species.sex="Yes"
-  )
+csv.fn <- "species-list.csv"
+my.specs.df <- read.csv(file=file.path("data", csv.fn))
 
-csas_table(t.df,
+my.specs.df$species.code <- as.character(my.specs.df$species.code)
+
+csas_table(my.specs.df,
            caption = "(ref:tabletaxa)",
            format="latex"
 )
@@ -38,5 +17,60 @@ csas_table(t.df,
 \clearpage
 
 
+(ref:tablemodels) Models considered.
+
+```{r tablemodels, results="asis"}
+knitr::opts_knit$set(latex.tilde = "\\hlopt{\\scriptsize{\\ensuremath{\\sim}}}")
+
+csv.fn <- "models-considered.csv"
+t.df <- read.csv(file.path("data", csv.fn))
+
+# t.df$model.formula <- gsub("\\~", "\\\\$sim$", t.df$model.formula)
+
+csas_table(t.df,
+           caption = "(ref:tablemodels)",
+           format="latex"
+)
+```
 
 \clearpage
+
+\begin{landscapepage}
+\begin{scriptsize}
+
+(ref:tablemodelsfits) Model fits.
+
+```{r tablemodelsfits, results="asis"}
+csv.fn <- "AIC-BIC-table.csv"
+t.df <- read.csv(file.path("data", csv.fn))
+
+values.vars <- names(t.df)[3:ncol(t.df)]
+t.df[,values.vars] <- round(t.df[,values.vars],2)
+t.df$species <- as.character(t.df$species)
+  
+csas_table(t.df,
+           caption = "(ref:tablemodelsfits)",
+           format="latex"
+)
+```
+
+\end{scriptsize}
+\end{landscapepage}
+
+\clearpage
+
+
+
+(ref:tablebestmodelsfits) Model fits.
+
+```{r tablebestmodelsfits, results="asis"}
+csv.fn <- "best-AIC-BIC-table.csv"
+t.df <- read.csv(file.path("data", csv.fn))
+names(t.df) <- gsub("_",".",names(t.df))
+t.df$species <- as.character(t.df$species)
+  
+csas_table(t.df,
+           caption = "(ref:tablebestmodelsfits)",
+           format="latex"
+)
+```

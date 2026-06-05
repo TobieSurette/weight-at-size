@@ -1,0 +1,384 @@
+<!-- This page has been automatically generated: do not edit by hand -->
+
+\pagebreak 
+
+# Figures 
+
+  
+(ref:caption-fig-species-10) Exploratory figure for Atlantic cod (species code 10).
+```{r fig-species-10, fig.cap='(ref:caption-fig-species-10)'}
+knitr::include_graphics('./figure/exploratory-plot-species-10.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-10) Model NoSex-0 residuals for Atlantic cod (species code 10).
+```{r resfig-species-10, fig.cap='(ref:caption-resfig-species-10)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-10-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-10-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-12) Exploratory figure for White hake (species code 12).
+```{r fig-species-12, fig.cap='(ref:caption-fig-species-12)'}
+knitr::include_graphics('./figure/exploratory-plot-species-12.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-12) Model NoSex-0 residuals for White hake (species code 12).
+```{r resfig-species-12, fig.cap='(ref:caption-resfig-species-12)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-12-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-12-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-14) Exploratory figure for Silver hake (species code 14).
+```{r fig-species-14, fig.cap='(ref:caption-fig-species-14)'}
+knitr::include_graphics('./figure/exploratory-plot-species-14.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-14) Model NoSex-0 residuals for Silver hake (species code 14).
+```{r resfig-species-14, fig.cap='(ref:caption-resfig-species-14)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-14-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-14-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-16) Exploratory figure for Pollock (species code 16).
+```{r fig-species-16, fig.cap='(ref:caption-fig-species-16)'}
+knitr::include_graphics('./figure/exploratory-plot-species-16.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-16) Model NoSex-0 residuals for Pollock (species code 16).
+```{r resfig-species-16, fig.cap='(ref:caption-resfig-species-16)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-16-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-16-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-23) Exploratory figure for Redfish unidentified (species code 23).
+```{r fig-species-23, fig.cap='(ref:caption-fig-species-23)'}
+knitr::include_graphics('./figure/exploratory-plot-species-23.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-23) Model NoSex-0 residuals for Redfish unidentified (species code 23).
+```{r resfig-species-23, fig.cap='(ref:caption-resfig-species-23)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-23-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-23-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-30) Exploratory figure for Atlantic halibut (species code 30).
+```{r fig-species-30, fig.cap='(ref:caption-fig-species-30)'}
+knitr::include_graphics('./figure/exploratory-plot-species-30.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-30) Model NoSex-0 residuals for Atlantic halibut (species code 30).
+```{r resfig-species-30, fig.cap='(ref:caption-resfig-species-30)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-30-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-30-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-31) Exploratory figure for Greenland halibut (species code 31).
+```{r fig-species-31, fig.cap='(ref:caption-fig-species-31)'}
+knitr::include_graphics('./figure/exploratory-plot-species-31.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-31) Model NoSex-0 residuals for Greenland halibut (species code 31).
+```{r resfig-species-31, fig.cap='(ref:caption-resfig-species-31)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-31-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-31-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-40) Exploratory figure for American plaice (species code 40).
+```{r fig-species-40, fig.cap='(ref:caption-fig-species-40)'}
+knitr::include_graphics('./figure/exploratory-plot-species-40.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-40) Model NoSex-0 residuals for American plaice (species code 40).
+```{r resfig-species-40, fig.cap='(ref:caption-resfig-species-40)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-40-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-40-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-41) Exploratory figure for Witch flounder (species code 41).
+```{r fig-species-41, fig.cap='(ref:caption-fig-species-41)'}
+knitr::include_graphics('./figure/exploratory-plot-species-41.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-41) Model NoSex-0 residuals for Witch flounder (species code 41).
+```{r resfig-species-41, fig.cap='(ref:caption-resfig-species-41)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-41-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-41-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-42) Exploratory figure for Yellowtail flounder (species code 42).
+```{r fig-species-42, fig.cap='(ref:caption-fig-species-42)'}
+knitr::include_graphics('./figure/exploratory-plot-species-42.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-42) Model NoSex-0 residuals for Yellowtail flounder (species code 42).
+```{r resfig-species-42, fig.cap='(ref:caption-resfig-species-42)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-42-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-42-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-43) Exploratory figure for Winter flounder (species code 43).
+```{r fig-species-43, fig.cap='(ref:caption-fig-species-43)'}
+knitr::include_graphics('./figure/exploratory-plot-species-43.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-43) Model NoSex-0 residuals for Winter flounder (species code 43).
+```{r resfig-species-43, fig.cap='(ref:caption-resfig-species-43)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-43-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-43-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-50) Exploratory figure for Atlantic wolffish (species code 50).
+```{r fig-species-50, fig.cap='(ref:caption-fig-species-50)'}
+knitr::include_graphics('./figure/exploratory-plot-species-50.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-50) Model NoSex-0 residuals for Atlantic wolffish (species code 50).
+```{r resfig-species-50, fig.cap='(ref:caption-resfig-species-50)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-50-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-50-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-60) Exploratory figure for Atlantic herring (species code 60).
+```{r fig-species-60, fig.cap='(ref:caption-fig-species-60)'}
+knitr::include_graphics('./figure/exploratory-plot-species-60.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-60) Model NoSex-0 residuals for Atlantic herring (species code 60).
+```{r resfig-species-60, fig.cap='(ref:caption-resfig-species-60)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-60-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-60-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-63) Exploratory figure for Rainbow smelt (species code 63).
+```{r fig-species-63, fig.cap='(ref:caption-fig-species-63)'}
+knitr::include_graphics('./figure/exploratory-plot-species-63.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-63) Model NoSex-0 residuals for Rainbow smelt (species code 63).
+```{r resfig-species-63, fig.cap='(ref:caption-resfig-species-63)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-63-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-63-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-64) Exploratory figure for Capelin (species code 64).
+```{r fig-species-64, fig.cap='(ref:caption-fig-species-64)'}
+knitr::include_graphics('./figure/exploratory-plot-species-64.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-64) Model NoSex-0 residuals for Capelin (species code 64).
+```{r resfig-species-64, fig.cap='(ref:caption-resfig-species-64)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-64-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-64-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-70) Exploratory figure for Atlantic mackerel (species code 70).
+```{r fig-species-70, fig.cap='(ref:caption-fig-species-70)'}
+knitr::include_graphics('./figure/exploratory-plot-species-70.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-70) Model NoSex-0 residuals for Atlantic mackerel (species code 70).
+```{r resfig-species-70, fig.cap='(ref:caption-resfig-species-70)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-70-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-70-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-112) Exploratory figure for Longfin hake (species code 112).
+```{r fig-species-112, fig.cap='(ref:caption-fig-species-112)'}
+knitr::include_graphics('./figure/exploratory-plot-species-112.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-112) Model NoSex-0 residuals for Longfin hake (species code 112).
+```{r resfig-species-112, fig.cap='(ref:caption-resfig-species-112)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-112-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-112-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-114) Exploratory figure for Fourbeard rockling (species code 114).
+```{r fig-species-114, fig.cap='(ref:caption-fig-species-114)'}
+knitr::include_graphics('./figure/exploratory-plot-species-114.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-114) Model NoSex-0 residuals for Fourbeard rockling (species code 114).
+```{r resfig-species-114, fig.cap='(ref:caption-resfig-species-114)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-114-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-114-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-118) Exploratory figure for Greenland cod (species code 118).
+```{r fig-species-118, fig.cap='(ref:caption-fig-species-118)'}
+knitr::include_graphics('./figure/exploratory-plot-species-118.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-118) Model NoSex-0 residuals for Greenland cod (species code 118).
+```{r resfig-species-118, fig.cap='(ref:caption-resfig-species-118)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-118-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-118-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-122) Exploratory figure for Cunner (species code 122).
+```{r fig-species-122, fig.cap='(ref:caption-fig-species-122)'}
+knitr::include_graphics('./figure/exploratory-plot-species-122.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-122) Model NoSex-0 residuals for Cunner (species code 122).
+```{r resfig-species-122, fig.cap='(ref:caption-resfig-species-122)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-122-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-122-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-143) Exploratory figure for Windowpane flounder (species code 143).
+```{r fig-species-143, fig.cap='(ref:caption-fig-species-143)'}
+knitr::include_graphics('./figure/exploratory-plot-species-143.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-143) Model NoSex-0 residuals for Windowpane flounder (species code 143).
+```{r resfig-species-143, fig.cap='(ref:caption-resfig-species-143)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-143-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-143-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-201) Exploratory figure for Thorny skate (species code 201).
+```{r fig-species-201, fig.cap='(ref:caption-fig-species-201)'}
+knitr::include_graphics('./figure/exploratory-plot-species-201.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-201) Model NoSex-0 residuals for Thorny skate (species code 201).
+```{r resfig-species-201, fig.cap='(ref:caption-resfig-species-201)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-201-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-201-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-202) Exploratory figure for Smooth skate (species code 202).
+```{r fig-species-202, fig.cap='(ref:caption-fig-species-202)'}
+knitr::include_graphics('./figure/exploratory-plot-species-202.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-202) Model NoSex-0 residuals for Smooth skate (species code 202).
+```{r resfig-species-202, fig.cap='(ref:caption-resfig-species-202)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-202-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-202-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-204) Exploratory figure for Winter skate (species code 204).
+```{r fig-species-204, fig.cap='(ref:caption-fig-species-204)'}
+knitr::include_graphics('./figure/exploratory-plot-species-204.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-204) Model NoSex-0 residuals for Winter skate (species code 204).
+```{r resfig-species-204, fig.cap='(ref:caption-resfig-species-204)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-204-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-204-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-220) Exploratory figure for Spiny dogfish (species code 220).
+```{r fig-species-220, fig.cap='(ref:caption-fig-species-220)'}
+knitr::include_graphics('./figure/exploratory-plot-species-220.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-220) Model NoSex-0 residuals for Spiny dogfish (species code 220).
+```{r resfig-species-220, fig.cap='(ref:caption-resfig-species-220)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-220-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-220-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-300) Exploratory figure for Longhorn sculpin (species code 300).
+```{r fig-species-300, fig.cap='(ref:caption-fig-species-300)'}
+knitr::include_graphics('./figure/exploratory-plot-species-300.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-300) Model NoSex-0 residuals for Longhorn sculpin (species code 300).
+```{r resfig-species-300, fig.cap='(ref:caption-resfig-species-300)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-300-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-300-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-610) Exploratory figure for Northern sand lance (species code 610).
+```{r fig-species-610, fig.cap='(ref:caption-fig-species-610)'}
+knitr::include_graphics('./figure/exploratory-plot-species-610.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-610) Model NoSex-0 residuals for Northern sand lance (species code 610).
+```{r resfig-species-610, fig.cap='(ref:caption-resfig-species-610)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-610-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-610-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-2550) Exploratory figure for American lobster (species code 2550).
+```{r fig-species-2550, fig.cap='(ref:caption-fig-species-2550)'}
+knitr::include_graphics('./figure/exploratory-plot-species-2550.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-2550) Model NoSex-0 residuals for American lobster (species code 2550).
+```{r resfig-species-2550, fig.cap='(ref:caption-resfig-species-2550)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-2550-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-2550-model-NoSex-0.png')
+```
+\clearpage
+
+(ref:caption-fig-species-2526) Exploratory figure for Snow crab (species code 2526).
+```{r fig-species-2526, fig.cap='(ref:caption-fig-species-2526)'}
+knitr::include_graphics('./figure/exploratory-plot-species-2526.png')
+```
+\clearpage
+
+(ref:caption-resfig-species-2526) Model NoSex-0 residuals for Snow crab (species code 2526).
+```{r resfig-species-2526, fig.cap='(ref:caption-resfig-species-2526)', fig.show='hold'}
+knitr::include_graphics('./figure/residuals-vs-length-species-2526-model-NoSex-0.png')
+knitr::include_graphics('./figure/residuals-vs-year-species-2526-model-NoSex-0.png')
+```
+\clearpage
+
