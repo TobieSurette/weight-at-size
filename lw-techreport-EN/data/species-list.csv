@@ -1,0 +1,30 @@
+"","species.code","species.english","species.latin","is.sexed","size.fac"
+"1",10,"Atlantic cod","Gadus morhua",1,0
+"2",12,"White hake","Urophycis tenuis",1,0
+"3",14,"Silver hake","Merluccius bilinearis",0,0
+"4",16,"Pollock","Pollachius virens",0,0
+"5",23,"Redfish unidentified","Sebastes sp.",1,0
+"6",30,"Atlantic halibut","Hippoglossus hippoglossus",1,0
+"7",31,"Greenland halibut","Reinhardtius hippoglossoides",1,0
+"8",40,"American plaice","Hippoglossoides platessoides",1,1
+"9",41,"Witch flounder","Glyptocephalus cynoglossus",1,1
+"10",42,"Yellowtail flounder","Limanda ferruginea",1,1
+"11",43,"Winter flounder","Pseudopleuronectes americanus",1,1
+"12",50,"Atlantic wolffish","Anarhichas lupus",0,0
+"13",60,"Atlantic herring","Clupea harengus",0,0
+"14",63,"Rainbow smelt","Osmerus mordax",0,0
+"15",64,"Capelin","Mallotus villosus",0,0
+"16",70,"Atlantic mackerel","Scomber scombrus",0,0
+"17",112,"Longfin hake","Phycis chesteri",0,0
+"18",114,"Fourbeard rockling","Enchelyopus cimbrius",0,0
+"19",118,"Greenland cod","Gadus macrocephalus",0,0
+"20",122,"Cunner","Tautogolabrus adspersus",0,0
+"21",143,"Windowpane flounder","Scophthalmus aquosus",1,0
+"22",201,"Thorny skate","Amblyraja radiata",1,0
+"23",202,"Smooth skate","Malacoraja senta",1,0
+"24",204,"Winter skate","Leucoraja ocellata",1,0
+"25",220,"Spiny dogfish","Squalus acanthias",1,0
+"26",300,"Longhorn sculpin","Myoxocephalus octodecemspinosus",0,0
+"27",610,"Northern sand lance","Ammodytes dubius",0,0
+"28",2550,"American lobster","Homarus americanus",1,0
+"29",2526,"Snow crab","Chionoecetes opilio",1,0

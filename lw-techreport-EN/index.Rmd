@@ -1,51 +1,63 @@
 ---
-title: "A mixed-effects approach to estimating appropriate length-weight relationship parameters for fish and invertebrate taxa, with application to observations from the annual southern Gulf of St. Lawrence ecosystem September survey (1971-2023)"
+title: "Mixed-effects modelling of the weight-at-size relationship for fish and invertebrate taxa, with application to observations from the annual September ecosystem survey of the southern Gulf of St. Lawrence (1971-2025)"
 french_title: ""
-year: 2023
+year: 2026
 report_number: nnn
 author: |
-  Daniel Ricard and Tobie Surette
-author_list: "Ricard, D. and Surette, T."
+  Daniel Ricard^1^, 
+  Matthew Robertson^2^, and 
+  Tobie Surette^1^
+author_list: "Ricard, D., Robertson, M. and Surette, T."
 region: Gulf Region
 french_region: Région du Golfe
 isbn: ""
+report_DOI: "##.####/xxxxx" # do not include https://doi.org/
 address: |
-  Science Branch\
-  Gulf Region\
-  Fisheries and Oceans Canada\
-  Moncton, New Brunswick, E1C 5K4, Canada
+  ^1^Gulf Fisheries Centre\
+     Fisheries and Oceans Canada\
+     343 Université Avenue\
+     Moncton, New Brunswick, E1C 5K4, Canada\
+  ^2^Marine Institute\
+     Memorial University of Newfoundland\
+     155 Ridge Road\
+     St. John's, Newfoundland and Labrador, A1C 5R3, Canada
 french_address: |
-     Direction des Sciences\
-     Région du Golfe\
+  ^1^Centre des Pêches du Golfe\
      Pêches et Océans Canada\
-     Moncton, Nouveau-Brunswick, E1C 5K4, Canada\
+     343 avenue Université\
+     Moncton, Nouveau Brunswick, E1C 9B6, Canada\
+  ^2^Marine Institute\
+     Memorial University of Newfoundland\
+     155 Ridge Road\
+     St. John's, Newfoundland and Labrador, A1C 5R3, Canada
 phone: "(506) "
 author_footnote: "Email: Daniel.Ricard@dfo-mpo.gc.ca | telephone: (506) 377-9527"
 abstract: |
-  A cohesive approach is used to obtain length-weight relationship parameter estimates for taxa caught in the annual southern Gulf of St. Lawrence September survey. The approach utilises the number of available observations and the range of observed lengths and weights to determine where annual estimates can be derived with confidence. The sampling protocols used in the survey are incorporated in the framework so that sex-specific parameters can also be calculated when available data is available. When annual estimates can be meaningfully estimated, a single model is fitted to available observations and the parameter estimates are reported. The approach provides a robust and reproducible method that can be used to annually update length-weight relationship estimates.
+  A cohesive approach is used to obtain length-weight relationship parameter estimates for taxa caught in the annual southern Gulf of St. Lawrence September survey. The approach provides a robust and reproducible method that can be used to annually update length-weight relationship estimates used to make weight predictions from observed lengths.
 french_abstract: |
   Voici le résumé.
+citation_french: "Last, F.M. et Smith, A.B. 2026. Titre ici (Nom d'espèce latin). Rapp. tech. can. sci. halieut. aquat. nnn : v + 18 p. https://doi.org/##.####/xxxxx"
 output:
- csasdown::techreport_pdf:
+ csasdowntex::techreport_pdf:
    french: false
-   # copy_sty is a toggle to copy the style file from the csasdown package every time you compile
+   # copy_sty is a toggle to copy the style file from the csasdowntex package every time you compile
    # the document. If false, any changes you have made to the style file in your project
    # will remain between compilations. If true, your changes will be lost when you compile
    copy_sty: true
    # line_nums is a toggle to show line numbers on the left side of the page. 
-   line_nums: false
+   line_nums: true
    # lot_lof is a toggle to show/not show the lists of tables and figures at the
    # beginning of the document
-   lot_lof: false
+   lot_lof: true
    # draft_watermark is a toggle to show/not show a DRAFT watermark across every page
-   draft_watermark: false
+   draft_watermark: true
    # highlight is the theme to use for code output. Must be one of the list given by:
    # pandoc --list-highlight-styles
    # which are:
    # pygments, tango, espresso, zenburn, kate, monochrome, breezedark, haddock
    # or the name of a custom *.latex file which is most easily made by copying one from 
-   # the csasdown library 'themes' directory, this directory on your machine:
-   # file.path(.libPaths(), "csasdown", "themes")
+   # the csasdowntex library 'themes' directory, this directory on your machine:
+   # file.path(.libPaths(), "csasdowntex", "themes")
    # to your working directory (the one containing index.Rmd)
    # To change the foreground text color, change the RGB value in the line containing
    # 'DefineVerbatimEnvironment'
@@ -56,7 +68,7 @@ type:
 # ------------
 # End of options to set
 knit: (function(input, ...) {
-       csasdown::render('_bookdown.yml')
+       csasdowntex::render('_bookdown.yml')
       })
 site: bookdown::bookdown_site
 link-citations: true
@@ -111,5 +123,5 @@ library(ggplot2)
 library(readr)
 library(tibble)
 library(rosettafish)
-library(csasdown)
+library(csasdowntex)
 ```

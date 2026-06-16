@@ -257,6 +257,7 @@
 \newcommand{\trCitation}{
 \begin{hangparas}{1em}{1}
 \trAuthsBack{} \trYear{}. \trTitle{}. Can. Tech. Rep. Fish. Aquat. Sci. \trReportNum{}: \pageref{TRlastRoman}{}\,+\,\pageref{LastPage}{}\,p.
+\link{https://doi.org/\trDOI}{https://doi.org/\trDOI}
 \end{hangparas}}
 
 %%%%% Frontmatter %%%%%
@@ -377,8 +378,9 @@ by
 % Fourth page: Colophon
 \vspace*{\fill}
 \begin{center}
-\copyright{} His Majesty the King in Right of Canada, as represented by the Minister of the\\ Department of Fisheries and Oceans, \trYear{}\\
-Cat. No. Fs97-6/\trReportNum{}E-PDF \quad ISBN \trISBN{} \quad ISSN 1488-5379
+\copyright{} His Majesty the King in Right of Canada, as represented by the Minister \\of the Department of Fisheries and Oceans, \trYear{}\\
+Cat. No. Fs97-6/\trReportNum{}E-PDF \quad ISBN \trISBN{} \quad ISSN 1488-5379\\
+\link{https://doi.org/\trDOI}{https://doi.org/\trDOI}
 \end{center}
 \par
 \bigskip
@@ -405,13 +407,21 @@ Correct citation for this publication:
 \trAbstract{}
 \clearpage
 \section*{R\'{E}SUM\'{E}}\addcontentsline{toc}{section}{R\'{E}SUM\'{E}}
-\trCitation{}
+
+\begin{hangparas}{1em}{1}
+\trCitationFrench{}
+\end{hangparas}
+
 \bigskip
 \trResume{}
 \label{TRlastRoman}
 \clearpage
 
 % Settings for the main document
+\listoftables
+\clearpage
+\listoffigures
+\clearpage
 \pagenumbering{arabic}  % Regular page numbers
 \pagestyle{plain}  % No page number on first page of main document, use 'empty'
 \renewcommand*{\thefootnote}{\arabic{footnote}}  % Back to numeric footnotes
@@ -449,6 +459,7 @@ Correct citation for this publication:
   \setlength{\itemsep}{#2\baselineskip}}}
  {\end{list}}
 \usepackage{calc}
+\usepackage{draftwatermark}
 \newcommand{\CSLBlock}[1]{\hfill\break#1\hfill\break}
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
@@ -475,3 +486,5 @@ Correct citation for this publication:
 %   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
 %   {\par}
 % % END-PANDOC-BEFORE-3.1.7
+\linenumbers
+\modulolinenumbers[1]

@@ -66,25 +66,32 @@
 
 % New definitions: Title, year, report number, authors
 % Protect lower case words (i.e., species names) in \Addlcwords{}, in "TechReport.sty"
-\newcommand{\trTitle}{A mixed-effects approach to estimating appropriate length-weight relationship parameters for fish and invertebrate taxa, with application to observations from the annual southern Gulf of St.~Lawrence ecosystem September survey (1971-2023)}
-\newcommand{\trYear}{2023}
+\newcommand{\trTitle}{Mixed-effects modelling of the weight-at-size relationship for fish and invertebrate taxa, with application to observations from the annual September ecosystem survey of the southern Gulf of St.~Lawrence (1971-2025)}
+\newcommand{\trYear}{2026}
 \newcommand{\trReportNum}{nnn}
+\newcommand{\trDOI}{\#\#.\#\#\#\#/xxxxx}
 % Optional
 \newcommand{\trAuthFootA}{Email: \link{mailto:Daniel.Ricard@dfo-mpo.gc.ca}{\nolinkurl{Daniel.Ricard@dfo-mpo.gc.ca}} \textbar{} telephone: (506) 377-9527}
-\newcommand{\trAuthsLong}{Daniel Ricard and Tobie Surette}
-\newcommand{\trAuthsBack}{Ricard, D. and Surette, T.}
+\newcommand{\trAuthsLong}{Daniel Ricard\textsuperscript{1}, Matthew Robertson\textsuperscript{2}, and Tobie Surette\textsuperscript{1}}
+\newcommand{\trAuthsBack}{Ricard, D., Robertson, M. and Surette, T.}
 
 % New definition: Address
-\newcommand{\trAddy}{Science Branch\\
-Gulf Region\\
+\newcommand{\trAddy}{\textsuperscript{1}Gulf Fisheries Centre\\
 Fisheries and Oceans Canada\\
-Moncton, New Brunswick, E1C 5K4, Canada}
+343 Université Avenue\\
+Moncton, New Brunswick, E1C 5K4, Canada\\
+\textsuperscript{2}Marine Institute\\
+Memorial University of Newfoundland\\
+155 Ridge Road\\
+St.~John's, Newfoundland and Labrador, A1C 5R3, Canada}
 
 % Abstract
-\newcommand{\trAbstract}{A cohesive approach is used to obtain length-weight relationship parameter estimates for taxa caught in the annual southern Gulf of St.~Lawrence September survey. The approach utilises the number of available observations and the range of observed lengths and weights to determine where annual estimates can be derived with confidence. The sampling protocols used in the survey are incorporated in the framework so that sex-specific parameters can also be calculated when available data is available. When annual estimates can be meaningfully estimated, a single model is fitted to available observations and the parameter estimates are reported. The approach provides a robust and reproducible method that can be used to annually update length-weight relationship estimates.}
+\newcommand{\trAbstract}{A cohesive approach is used to obtain length-weight relationship parameter estimates for taxa caught in the annual southern Gulf of St.~Lawrence September survey. The approach provides a robust and reproducible method that can be used to annually update length-weight relationship estimates used to make weight predictions from observed lengths.}
 
 % Resume (i.e., French abstract)
 \newcommand{\trResume}{Voici le résumé.}
+
+\newcommand{\trCitationFrench}{Last, F.M. et Smith, A.B. 2026. Titre ici (Nom d'espèce latin). Rapp. tech. can. sci. halieut. aquat. nnn~: v + 18 p.~\url{https://doi.org/\#\#.\#\#\#\#/xxxxx}}
 
 \newcommand{\trISBN}{}
 
@@ -170,40 +177,24 @@ Moncton, New Brunswick, E1C 5K4, Canada}
 %%%%% Main document %%%%%
 \section{Introduction}\label{sec:introduction}
 
-Length measurements are easier to obtain than weight measurements.
+The existence of a relationship between an individual's size and its weight is a central tenet in biology. While size is usually described as a one-dimensional measure (e.g.~height or length), weight is a measure of a three-dimensional process.
 
-The precision associated with weight measurements has changed over the survey period, whereas the length measurements are more comparable.
+The study of the relationship between size and weight, allometry.
 
-Length-weight relationships are used to predict weight based on length observations. This is an essential analytical component of many stock assessments since commercial landings and many reference points are in weight units.
+Observations of size and weights are obtained during a number of scientific activities, and their respective measurements are highly influenced by the tools used to obtain them. While height and length measurements are readily obtained using a ruler, weight measurements require a scale. The precision associated with weight measurements is directly related to the instrument used, and scales usually have a minimum weight that they can report. Additionally, the design of scales has changed over time, leading to more precise measurements over time.
 
-The relationship between length and weight is dictated by the cubic nature of growth in three dimensions. Allometric models estimate the relationship between length and weight.
+In scientific monitoring programs such as annual marine ecosystem surveys conducted on research vessels, a large number of individuals of different marine taxa are measured and weighted. It is often the case that length measurements are available for all individuals caught, but weight measurements are only available from a subset of observations. Length-weight relationships are required to predict weight based on length observations. This is an essential analytical component of many stock assessments, since commercial landings and many reference points are in weight units but the underlying information collected are length measurements.
 
-Mixed effects models have been used to estimate length-weight relationship parameters by other practitioners (\citeproc{ref-Lai-Hesler-2004}{Lai and Helser 2004}; \citeproc{ref-Ma-etal-2017}{Ma et al. 2017}).
+In the Gulf Region of Fisheries and Oceans Canada, an annual update of weight-at-size relationship parameters was historically done using a script written in SAS (\citeproc{ref-sas-citation}{SAS Institute Inc. 2026}). This script evolved over a number of years and accreted ad hoc steps to identify errors and treat different taxa differently based on the number of observations available. This script was considered as the authoritative source to estimate the weight-at-size parameters used in weight predictions.
 
-When year-specific estimates are desired, it is often the case that a length-weight relationship will be estimated using data for a specific year only. While this is a defensible method, it may be limited if not enough samples are available or available observations only cover a narrow range of lengths and weights. A superior alternative would be to use all available observations in the same model and obtain annual estimates whose uncertainty will reflect the data limitations.
-
-The protocol used in the annual September survey of the southern Gulf of St.~Lawrence contains sex-specific sampling for species that exhibit sexual dimorphism in growth. As such, sex-dependent parameters should be derived for these species.
-
-We present a logical, statistically sound and reproducible framework to estimate length-weight relationship parameters, and apply it to observations of various fish and invertebrate taxa captured in the annual September ecosystem survey of the southern Gulf of St.~Lawrence.
+We present a statistically sound framework to estimate length-weight relationship parameters, and apply it to observations of various fish and invertebrate taxa captured in the annual September ecosystem survey of the southern Gulf of St.~Lawrence.
 
 A cohesive approach is used to obtain length-weight relationship parameter estimates for taxa caught in the annual southern Gulf of St.~Lawrence September survey. The approach utilises the number of available observations and the range of observed lengths and weights to determine where annual estimates can be derived with confidence. The sampling protocols used in the survey are incorporated in the framework so that sex-specific parameters can also be calculated when available data is available. When annual estimates can be meaningfully estimated, a single model is fitted to available observations and the parameter estimates are reported. The approach provides a robust and reproducible method that can be used to annually update length-weight relationship estimates.
 
 Relevant literature citations (\citeproc{ref-Kulbicki-etal-2005}{Kulbicki et al. 2005}; \citeproc{ref-Froese-2006}{Froese 2006}; \citeproc{ref-Froese-etal-2011}{Froese et al. 2011}; \citeproc{ref-Jin-etal-2015}{Jin et al. 2015}; \citeproc{ref-Hajjej-2016}{Hajjej et al. 2016}; \citeproc{ref-Aydin-2018}{Aydin 2018}; \citeproc{ref-Pauly-etal-2022}{Pauly et al. 2022}; \citeproc{ref-Yin-etal-2022}{Yin et al. 2022}).
 
-issues to deal with
-\begin{itemize}
+issues to deal with - small sample size - small size values and weight measurement precision - limited size range - taxonomic misidentification which requires grouping, this changes with time - mismeasurement and transcription errors
 
-\item
-  small sample size
-\item
-  small size values and weight measurement precision
-\item
-  limited size range
-\item
-  taxonomic misidentification which requires grouping, this changes with time
-\item
-  mismeasurement and transcription errors
-\end{itemize}
 uses: 1 - predict weight from size - list of taxa, annual weight-at-size predictor for observations in September
 
 2 - flag outliers when entering data
@@ -214,49 +205,20 @@ do we need to include the stratification and/or a catch-weighted estimation?
 
 \subsection{Exploratory analyses}\label{exploratory-analyses}
 
-The empirical weight-at-size estimates are presented for the list of taxa in Table~\ref{tab:tabletaxa}. For each taxon, a figure showing the distribution of measured weight at given lengths over time.
+Weight-at-size are presented for the list of taxa in Table~\ref{tab:tabletaxa}. For each taxon, a multi-panel figure showing the relationship between observed lengths and weights are provided. For taxa where sex-specific information is available, the weight-at-size relationships are presented separately for each sex. For taxa where size classes are used in the modelling, the weight-at-size relationships are presented separately for each size class.
 
 \subsection{Allometric function}\label{allometric-function}
 
-The length-weight relationship we use is the following: \begin{equation}
+The weight-at-size relationship used is the following: \begin{equation}
 W = \alpha L^{\beta}
-\end{equation} where \(W\) is weight, \(L\) is length, and \(a\) and \(b\) are the allometric parameters to be estimated.
+\end{equation} where \(W\) is observed weight in grams, \(L\) is the length in centimeters, and \(a\) and \(b\) are the allometric parameters to be estimated. It is common to log transform this relationship to make it linear: \begin{equation}
+log(W) = log(\alpha) +  \beta log(L)
+\end{equation} The parameter \(log(\alpha)\) is referred to as the ``\(a\)'' parameter, and \(\beta\) is referred to as the ``\(b\)'' parameter.
 Individual fish observations of length-weight pairs are used to estimate model parameters.
-
-The units of length and weight will influence the parameter values, so in all analyses presented, lengths are in centimeters and weights are in grams.
-
-\subsection{Sequential approach}\label{sequential-approach}
-
-For each taxon examined, the number of available paired observations of weight and size, and the range of their observed measurements, will determine whether a more complex model can be estimated.
-
-A minimum number of samples must be available in order to meaningfully estimate \(a\) and \(b\) parameters. The available length information must also cover a wide range of lengths so that estimated parameter values can be used in predictions.
-
-Sequential approach
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-
-\item
-  Full Model: sex- and time-dependent relationship
-\item
-  time-dependent relationship
-\item
-  sex-dependent relationship
-\item
-  overall relationship, sex-independent and time-independent
-\end{enumerate}
-The models considered can be found in Table~\ref{tablemodels}.
 
 \subsection{Mixed effects models}\label{mixed-effects-models}
 
-To estimate sex and year effects on the length-weight relationship, a mixed effects framework is adopted to analyse the available individual observations of fish length-weight pairs. For species with no sex-specific observations, yearly effects are added to both parameters:
-\begin{equation}
-W =  \left(\alpha +\delta^{\alpha}_{y}\right)L^{\left(\beta +\delta^{\beta}_{y} \right)}
-\end{equation}
-For species with sex-specific observations, yearly and sex effects are added to both parameters:
-\begin{equation}
-W =  \left(\alpha +\delta^{\alpha}_{ys}\right)L^{\left(\beta +\delta^{\beta}_{ys} \right)}
-\end{equation}
-Models are implemented using the \emph{lme4} R package.
+To allow for sex, size and year effects on the weight-at-size relationship, a mixed effects framework is adopted to analyse the available individual observations of length-weight pairs. The models considered appear in Table~\ref{tab:tablemodels}. Models are implemented using the \emph{glmmTMB} R package (\citeproc{ref-McGillycuddy-etal-2025}{McGillycuddy et al. 2025}) using R 4.6.0 (\citeproc{ref-cite-R}{R Core Team 2026}).
 
 \subsection{Southern Gulf of St.~Lawrence ecosystem survey}\label{southern-gulf-of-st.-lawrence-ecosystem-survey}
 
@@ -264,33 +226,29 @@ Observations of fish and invertebrate taxa collected during the annual southern 
 
 The taxa used in the analyses appear in Table~\ref{tab:tabletaxa}.
 
+\subsubsection{Model selection}\label{model-selection}
+
+\subsubsection{Bias and precision of predicted weights}\label{bias-and-precision-of-predicted-weights}
+
+To determine the appropriateness of fitted models in predicting weight-at-size, residual plots are presented.
+
 \subsubsection{Annual update of length-weight parameter estimates}\label{annual-update-of-length-weight-parameter-estimates}
 
-The analyses presented herein are encapsulated in an R function that allows for an annual update of the estimated values for each taxon.
+The analyses presented herein are encapsulated in an R script that allows for an annual update of the estimated values for each taxon.
 
-\subsection{Estimates obtained from SAS}\label{estimates-obtained-from-sas}
+\subsection{Comparison with estimates obtained from SAS}\label{comparison-with-estimates-obtained-from-sas}
 
 A SAS script was developed by scientists at Fisheries and Oceans Canada to estimate the parameters of the relationship between weight and length. This script manually removed outliers for different taxa and also assigns each taxon to the type of estimates that will be calculated. The values derived from this script can be found in Table~\ref{tab:SASestimates} (Appendix~\ref{app:first-appendix})
 
 \section{Results}\label{results}
 
-\subsection{Sex and year effects}\label{sex-and-year-effects}
+\subsection{Taxon-specific model predictions}\label{taxon-specific-model-predictions}
 
-Taxon listed in Table~\ref{tab:tableresults1}.
-
-\subsection{Sex effects}\label{sex-effects}
-
-Taxon listed in Table~\ref{tab:tableresults1}.
-
-\subsection{Year effects}\label{year-effects}
-
-Taxon listed in Table~\ref{tab:tableresults1}.
-
-\subsection{Species-specific model predictions}\label{species-specific-model-predictions}
-
-Overall length-weight relationship parameters can be found in Table~\ref{tab:tableresults4}.
+AIC and BIC values of weight-at-size models can be found in Table~\ref{tab:tablemodelsfits}.
 
 \subsection{Comparison to previous estimates obtained in SAS}\label{comparison-to-previous-estimates-obtained-in-sas}
+
+The length-weight regression parameters that were obtained by the SAS scripts sometimes led to biased weight predictions, especially at large lengths. To exemplify the superiority of our approach, we present a few selected cases where the mixed effects approach resolves biases that were present in the relationships estimated in SAS.
 
 \section{Discussion}\label{discussion}
 
@@ -302,36 +260,681 @@ If the yearly changes in estimated values of \(a\) and \(b\) are auto-correlated
 
 The availability of a sufficient number of samples is key to estimating a meaningful length-weight relationship.
 
-Discuss the use of base 10 logarithm versus natural logarithm
+The use of base 10 logarithm that was implemented in the SAS scripts does not provide any advantage when compared to using natural logarithm. The resulting length-weight relationship will be the same but its parameter estimates will have different values.
 
 Froese et al. (\citeproc{ref-Froese-etal-2014}{2014})
+
+The framework developed and presented here provides a defensible and appropriate method to obtain robust length-weight regressions model estimates. The predicted weights obtained from the fitted models leverage all available information while employing contemporary statistical methods.
+
+The encapsulation of the methods within a script provides an elegant way to update these indices yearly, as new information becomes available.
 
 \clearpage
 
 \section{Tables}\label{tables}
 
 
-\begin{longtable}[t]{rlll} \caption{\label{tab:tablemodels}Models considered.}\\ \toprule model.number & model.type & formula & notes\\ \midrule \endfirsthead \multicolumn{4}{l}{\textit{... Continued from previous page}} \\ \hline \caption*{}\\ \toprule model.number & model.type & formula & notes\\ \midrule \endhead \hline \multicolumn{4}{l}{\textit{Continued on next page ...}} \\ \endfoot \bottomrule \endlastfoot 1 & lm & lweight~llength*year*sex & Full model\\* \end{longtable}
+\begin{longtable}[t]{rlllrr} \caption{\label{tab:tabletaxa}Species and groups of taxa used the analyses. Each species code, species common English name and scientific name appear in this Table. Whether a species is subjected to sex-dependent sampling, and whether size classes are assigned to a taxon, appear in the last two columns of the Table.}\\ \toprule X & species.code & species.english & species.latin & is.sexed & size.fac\\ \midrule \endfirsthead \multicolumn{6}{l}{\textit{... Continued from previous page}} \\ \hline \caption*{}\\ \toprule X & species.code & species.english & species.latin & is.sexed & size.fac\\ \midrule \endhead \hline \multicolumn{6}{l}{\textit{Continued on next page ...}} \\ \endfoot \bottomrule \endlastfoot 1 & 10 & Atlantic cod & Gadus morhua & 1 & 0\\ 2 & 12 & White hake & Urophycis tenuis & 1 & 0\\ 3 & 14 & Silver hake & Merluccius bilinearis & 0 & 0\\ 4 & 16 & Pollock & Pollachius virens & 0 & 0\\ 5 & 23 & Redfish unidentified & Sebastes sp. & 1 & 0\\ 6 & 30 & Atlantic halibut & Hippoglossus hippoglossus & 1 & 0\\ 7 & 31 & Greenland halibut & Reinhardtius hippoglossoides & 1 & 0\\ 8 & 40 & American plaice & Hippoglossoides platessoides & 1 & 1\\ 9 & 41 & Witch flounder & Glyptocephalus cynoglossus & 1 & 1\\ 10 & 42 & Yellowtail flounder & Limanda ferruginea & 1 & 1\\ 11 & 43 & Winter flounder & Pseudopleuronectes americanus & 1 & 1\\ 12 & 50 & Atlantic wolffish & Anarhichas lupus & 0 & 0\\ 13 & 60 & Atlantic herring & Clupea harengus & 0 & 0\\ 14 & 63 & Rainbow smelt & Osmerus mordax & 0 & 0\\ 15 & 64 & Capelin & Mallotus villosus & 0 & 0\\ 16 & 70 & Atlantic mackerel & Scomber scombrus & 0 & 0\\ 17 & 112 & Longfin hake & Phycis chesteri & 0 & 0\\ 18 & 114 & Fourbeard rockling & Enchelyopus cimbrius & 0 & 0\\ 19 & 118 & Greenland cod & Gadus macrocephalus & 0 & 0\\ 20 & 122 & Cunner & Tautogolabrus adspersus & 0 & 0\\ 21 & 143 & Windowpane flounder & Scophthalmus aquosus & 1 & 0\\ 22 & 201 & Thorny skate & Amblyraja radiata & 1 & 0\\ 23 & 202 & Smooth skate & Malacoraja senta & 1 & 0\\ 24 & 204 & Winter skate & Leucoraja ocellata & 1 & 0\\ 25 & 220 & Spiny dogfish & Squalus acanthias & 1 & 0\\ 26 & 300 & Longhorn sculpin & Myoxocephalus octodecemspinosus & 0 & 0\\ 27 & 610 & Northern sand lance & Ammodytes dubius & 0 & 0\\ 28 & 2550 & American lobster & Homarus americanus & 1 & 0\\ 29 & 2526 & Snow crab & Chionoecetes opilio & 1 & 0\\* \end{longtable}
 
 \clearpage
 
 
-\begin{longtable}[t]{rllll} \caption{\label{tab:tabletaxa}Species and groups of species used the analyses. Each species code, species common English name and scientific name appear in this Table. Whether a species is subjected to sex-dependent sampling appears in the last column of the Table.}\\ \toprule species.code & species.english & species.latin & species.year & species.sex\\ \midrule \endfirsthead \multicolumn{5}{l}{\textit{... Continued from previous page}} \\ \hline \caption*{}\\ \toprule species.code & species.english & species.latin & species.year & species.sex\\ \midrule \endhead \hline \multicolumn{5}{l}{\textit{Continued on next page ...}} \\ \endfoot \bottomrule \endlastfoot 40 & American Plaice & Hippoglossoides platessoides & Yes & Yes\\* \end{longtable}
+\begin{longtable}[t]{lll} \caption{\label{tab:tablemodels}Models considered.}\\ \toprule model.name & model.formula & family\\ \midrule \endfirsthead \multicolumn{3}{l}{\textit{... Continued from previous page}} \\ \hline \caption*{}\\ \toprule model.name & model.formula & family\\ \midrule \endhead \hline \multicolumn{3}{l}{\textit{Continued on next page ...}} \\ \endfoot \bottomrule \endlastfoot NoSex-0 & logweight~loglength & gaussian\\ NoSex-1 & logweight~loglength+year.fac & gaussian\\ NoSex-2 & logweight~loglength*year.fac & gaussian\\ NoSex-3 & logweight~(1|year.fac)+loglength & gaussian\\ Sex-0 & logweight~loglength+sex.fac & gaussian\\ Sex-1 & logweight~loglength*sex.fac & gaussian\\ Sex-2 & logweight~loglength+year.fac+sex.fac & gaussian\\ Sex-3 & logweight~loglength*year.fac*sex.fac & gaussian\\ Sex-4 & logweight~(1|year.fac)+loglength*sex.fac & gaussian\\ Sex-5 & logweight~(1|year.fac)+loglength*sex.fac*size.fac & gaussian\\* \end{longtable}
 
 \clearpage
+\begin{landscapepage}
+\begin{scriptsize}
 
+
+ \begin{longtable}[t]{llrrrrrrrrrr} \caption{\label{tab:tablemodelsfits}Model fits.}\\ \toprule species & fit.measure & NoSex.0 & NoSex.1 & NoSex.2 & NoSex.3 & Sex.0 & Sex.1 & Sex.2 & Sex.3 & Sex.4 & Sex.5\\ \midrule \endfirsthead \multicolumn{12}{l}{\textit{... Continued from previous page}} \\ \hline \caption*{}\\ \toprule species & fit.measure & NoSex.0 & NoSex.1 & NoSex.2 & NoSex.3 & Sex.0 & Sex.1 & Sex.2 & Sex.3 & Sex.4 & Sex.5\\ \midrule \endhead \hline \multicolumn{12}{l}{\textit{Continued on next page ...}} \\ \endfoot \bottomrule \endlastfoot 10 & AIC & -130,215.44 & -131,500.80 & -131,501.69 & -137,130.56 & -130,219.53 & -130,225.18 & NA & NA & NA & NA\\ 10 & BIC & -130,186.53 & -131,462.25 & -131,453.50 & -137,092.00 & -130,180.97 & -130,176.99 & NA & NA & NA & NA\\ 12 & AIC & -37,977.54 & -37,976.20 & -38,380.18 & -39,108.52 & -38,044.88 & -39,061.29 & -38,042.89 & -39,164.37 & -40,202.59 & NA\\ 12 & BIC & -37,952.31 & -37,942.56 & -38,338.13 & -39,074.88 & -38,011.23 & -39,019.24 & -38,000.83 & -39,088.68 & -40,152.13 & NA\\ 14 & AIC & -326.73 & -330.66 & -335.10 & -337.27 & NA & NA & NA & NA & NA & NA\\ 14 & BIC & -313.28 & -312.73 & -312.68 & -319.34 & NA & NA & NA & NA & NA & NA\\ 16 & AIC & -491.63 & -490.85 & -490.98 & -524.43 & NA & NA & NA & NA & NA & NA\\ 16 & BIC & -480.03 & -475.39 & -471.65 & -508.96 & NA & NA & NA & NA & NA & NA\\ 23 & AIC & -18,809.03 & -19,188.82 & -19,404.71 & -20,475.61 & -18,920.71 & -19,007.73 & NA & NA & NA & NA\\ 23 & BIC & -18,784.54 & -19,156.18 & -19,363.91 & -20,442.97 & -18,888.07 & -18,966.93 & NA & NA & NA & NA\\ 30 & AIC & -2,645.83 & -2,732.80 & -2,736.76 & -2,848.27 & -2,688.34 & -2,737.19 & NA & NA & NA & NA\\ 30 & BIC & -2,629.42 & -2,710.91 & -2,709.41 & -2,826.38 & -2,666.46 & -2,709.83 & NA & NA & NA & NA\\ 31 & AIC & -15,903.36 & -16,043.76 & -16,047.52 & -16,474.30 & -15,987.38 & -16,212.11 & NA & NA & NA & NA\\ 31 & BIC & -15,881.06 & -16,014.04 & -16,010.36 & -16,444.58 & -15,957.66 & -16,174.95 & NA & NA & NA & NA\\ 40 & AIC & -147,198.16 & -155,416.64 & -156,154.32 & -166,772.88 & -147,906.71 & -152,885.71 & -155,719.33 & -160,914.54 & -172,997.03 & -178,543.84\\ 40 & BIC & -147,167.74 & -155,376.07 & -156,103.61 & -166,732.32 & -147,866.14 & -152,835.01 & -155,668.63 & -160,823.27 & -172,936.18 & -178,401.87\\ 41 & AIC & -11,855.88 & -12,299.20 & -12,431.83 & -12,572.17 & -11,970.23 & -12,209.85 & -12,383.14 & -12,660.00 & -12,826.64 & -12,918.58\\ 41 & BIC & -11,833.80 & -12,269.76 & -12,395.03 & -12,542.73 & -11,940.79 & -12,173.05 & -12,346.34 & -12,593.75 & -12,782.47 & -12,815.54\\ 42 & AIC & -39,070.21 & -39,400.23 & -39,398.58 & -41,837.22 & -39,163.11 & -39,416.43 & -39,558.99 & -39,790.62 & -42,236.04 & -42,365.29\\ 42 & BIC & -39,044.59 & -39,366.08 & -39,355.88 & -41,803.06 & -39,128.95 & -39,373.74 & -39,516.29 & -39,713.76 & -42,184.80 & -42,245.74\\ 43 & AIC & -47,749.16 & -48,277.86 & -48,377.83 & -51,168.14 & -47,755.03 & -48,315.13 & -48,291.52 & -48,854.99 & -51,752.88 & -52,361.74\\ 43 & BIC & -47,723.50 & -48,243.65 & -48,335.07 & -51,133.93 & -47,720.82 & -48,272.36 & -48,248.76 & -48,778.01 & -51,701.57 & -52,242.01\\ 50 & AIC & -814.00 & -817.72 & -819.05 & -816.09 & NA & NA & NA & NA & NA & NA\\ 50 & BIC & -800.23 & -799.35 & -796.09 & -797.72 & NA & NA & NA & NA & NA & NA\\ 60 & AIC & -9,125.46 & -17,426.43 & -17,456.65 & -22,686.12 & NA & NA & NA & NA & NA & NA\\ 60 & BIC & -9,101.08 & -17,393.93 & -17,416.02 & -22,653.62 & NA & NA & NA & NA & NA & NA\\ 63 & AIC & -1,743.11 & -1,744.53 & -1,744.13 & -2,038.14 & NA & NA & NA & NA & NA & NA\\ 63 & BIC & -1,723.48 & -1,718.36 & -1,711.41 & -2,011.96 & NA & NA & NA & NA & NA & NA\\ 64 & AIC & 844.39 & 845.97 & 827.24 & 530.91 & NA & NA & NA & NA & NA & NA\\ 64 & BIC & 866.33 & 875.22 & 863.80 & 560.16 & NA & NA & NA & NA & NA & NA\\ 70 & AIC & -3,549.69 & -3,935.45 & -3,945.28 & -4,325.19 & NA & NA & NA & NA & NA & NA\\ 70 & BIC & -3,530.75 & -3,910.21 & -3,913.72 & -4,299.95 & NA & NA & NA & NA & NA & NA\\ 112 & AIC & -369.28 & -379.08 & -381.92 & -410.47 & NA & NA & NA & NA & NA & NA\\ 112 & BIC & -354.25 & -359.04 & -356.87 & -390.43 & NA & NA & NA & NA & NA & NA\\ 114 & AIC & -753.52 & -786.60 & -785.02 & -820.61 & NA & NA & NA & NA & NA & NA\\ 114 & BIC & -736.13 & -763.41 & -756.04 & -797.43 & NA & NA & NA & NA & NA & NA\\ 118 & AIC & -1,521.45 & -1,525.47 & -1,527.73 & -1,576.91 & NA & NA & NA & NA & NA & NA\\ 118 & BIC & -1,504.43 & -1,502.78 & -1,499.37 & -1,554.22 & NA & NA & NA & NA & NA & NA\\ 122 & AIC & -798.23 & -796.36 & -795.86 & -836.83 & NA & NA & NA & NA & NA & NA\\ 122 & BIC & -782.76 & -775.73 & -770.07 & -816.21 & NA & NA & NA & NA & NA & NA\\ 143 & AIC & -2,016.51 & -2,016.74 & -2,023.78 & -2,154.71 & -2,016.42 & -2,022.66 & -2,017.21 & -2,045.80 & -2,158.14 & NA\\ 143 & BIC & -1,998.55 & -1,992.79 & -1,993.84 & -2,130.76 & -1,992.46 & -1,992.72 & -1,987.28 & -1,991.91 & -2,122.22 & NA\\ 201 & AIC & -1,121.43 & -1,445.52 & -1,449.05 & -1,540.29 & -1,123.74 & -1,138.54 & NA & NA & NA & NA\\ 201 & BIC & -1,098.46 & -1,414.89 & -1,410.76 & -1,509.66 & -1,093.11 & -1,100.25 & NA & NA & NA & NA\\ 202 & AIC & -60.32 & -111.91 & -112.65 & -138.64 & -58.46 & -60.39 & NA & NA & NA & NA\\ 202 & BIC & -42.58 & -88.27 & -83.09 & -115.00 & -34.81 & -30.83 & NA & NA & NA & NA\\ 204 & AIC & -426.95 & -431.22 & -434.33 & -445.34 & -438.68 & -438.78 & NA & NA & NA & NA\\ 204 & BIC & -410.15 & -408.82 & -406.33 & -422.94 & -416.28 & -410.78 & NA & NA & NA & NA\\ 220 & AIC & -2,138.49 & -2,137.15 & -2,168.42 & -2,228.09 & -2,332.26 & -2,367.46 & NA & NA & NA & NA\\ 220 & BIC & -2,120.77 & -2,113.53 & -2,138.90 & -2,204.47 & -2,308.64 & -2,337.94 & NA & NA & NA & NA\\ 300 & AIC & -8,495.71 & -8,493.85 & -8,496.26 & -9,876.12 & NA & NA & NA & NA & NA & NA\\ 300 & BIC & -8,473.42 & -8,464.12 & -8,459.10 & -9,846.39 & NA & NA & NA & NA & NA & NA\\ 610 & AIC & 4.31 & -36.65 & -109.58 & -204.97 & NA & NA & NA & NA & NA & NA\\ 610 & BIC & 21.63 & -13.55 & -80.71 & -181.87 & NA & NA & NA & NA & NA & NA\\ 2526 & AIC & 20,176.05 & 19,808.41 & 16,199.31 & 19,790.97 & 17,204.83 & 16,869.84 & NA & NA & NA & NA\\ 2526 & BIC & 20,202.12 & 19,843.16 & 16,242.76 & 19,825.73 & 17,239.58 & 16,913.29 & NA & NA & NA & NA\\ 2550 & AIC & 203.12 & 174.52 & 163.30 & 95.26 & 203.70 & 205.69 & NA & NA & NA & NA\\ 2550 & BIC & 210.52 & 184.38 & 175.63 & 105.13 & 213.56 & 218.02 & NA & NA & NA & NA\\* \end{longtable}
+
+
+
+\end{scriptsize}
+\end{landscapepage}
 \clearpage
+
+
+\begin{longtable}[t]{lllrllr} \caption{\label{tab:tablebestmodelsfits}Model fits.}\\ \toprule species & fit.measure.x & Min.Model.x & Min.Value.x & fit.measure.y & Min.Model.y & Min.Value.y\\ \midrule \endfirsthead \multicolumn{7}{l}{\textit{... Continued from previous page}} \\ \hline \caption*{}\\ \toprule species & fit.measure.x & Min.Model.x & Min.Value.x & fit.measure.y & Min.Model.y & Min.Value.y\\ \midrule \endhead \hline \multicolumn{7}{l}{\textit{Continued on next page ...}} \\ \endfoot \bottomrule \endlastfoot 10 & AIC & NoSex-3 & -137,130.55775 & BIC & NoSex-3 & -137,092.0041\\ 12 & AIC & Sex-4 & -40,202.59015 & BIC & Sex-4 & -40,152.1285\\ 14 & AIC & NoSex-3 & -337.27393 & BIC & NoSex-3 & -319.3415\\ 16 & AIC & NoSex-3 & -524.42890 & BIC & NoSex-3 & -508.9630\\ 23 & AIC & NoSex-3 & -20,475.61400 & BIC & NoSex-3 & -20,442.9737\\ 30 & AIC & NoSex-3 & -2,848.26671 & BIC & NoSex-3 & -2,826.3813\\ 31 & AIC & NoSex-3 & -16,474.29940 & BIC & NoSex-3 & -16,444.5754\\ 40 & AIC & Sex-5 & -178,543.84195 & BIC & Sex-5 & -178,401.8687\\ 41 & AIC & Sex-5 & -12,918.58128 & BIC & Sex-5 & -12,815.5357\\ 42 & AIC & Sex-5 & -42,365.29266 & BIC & Sex-5 & -42,245.7351\\ 43 & AIC & Sex-5 & -52,361.73959 & BIC & Sex-5 & -52,242.0053\\ 50 & AIC & NoSex-2 & -819.04792 & BIC & NoSex-0 & -800.2278\\ 60 & AIC & NoSex-3 & -22,686.12212 & BIC & NoSex-3 & -22,653.6186\\ 63 & AIC & NoSex-3 & -2,038.13593 & BIC & NoSex-3 & -2,011.9590\\ 64 & AIC & NoSex-3 & 530.90941 & BIC & NoSex-3 & 560.1585\\ 70 & AIC & NoSex-3 & -4,325.19389 & BIC & NoSex-3 & -4,299.9483\\ 112 & AIC & NoSex-3 & -410.47378 & BIC & NoSex-3 & -390.4325\\ 114 & AIC & NoSex-3 & -820.61142 & BIC & NoSex-3 & -797.4255\\ 118 & AIC & NoSex-3 & -1,576.90570 & BIC & NoSex-3 & -1,554.2165\\ 122 & AIC & NoSex-3 & -836.83455 & BIC & NoSex-3 & -816.2067\\ 143 & AIC & Sex-4 & -2,158.14420 & BIC & NoSex-3 & -2,130.7618\\ 201 & AIC & NoSex-3 & -1,540.28621 & BIC & NoSex-3 & -1,509.6559\\ 202 & AIC & NoSex-3 & -138.64074 & BIC & NoSex-3 & -114.9954\\ 204 & AIC & NoSex-3 & -445.33608 & BIC & NoSex-3 & -422.9365\\ 220 & AIC & Sex-1 & -2,367.46436 & BIC & Sex-1 & -2,337.9427\\ 300 & AIC & NoSex-3 & -9,876.11867 & BIC & NoSex-3 & -9,846.3934\\ 610 & AIC & NoSex-3 & -204.96933 & BIC & NoSex-3 & -181.8716\\ 2526 & AIC & NoSex-2 & 16,199.31144 & BIC & NoSex-2 & 16,242.7572\\ 2550 & AIC & NoSex-3 & 95.26277 & BIC & NoSex-3 & 105.1264\\* \end{longtable}
+
+\pagebreak
 
 \section{Figures}\label{figures}
 
 
 \begin{figure}[htb]
 
-{\centering \pdftooltip{\includegraphics[width=6in]{./figure/LW-example}}{Figure \ref{fig:fig1}} 
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-10}}{Figure \ref{fig:fig-species-10}} 
 
 }
 
-\caption{Example of a length-weight relationship.}\label{fig:fig1}
+\caption{Exploratory figure for Atlantic cod (species code 10).}\label{fig:fig-species-10}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-10-model-NoSex-0}}{Figure \ref{fig:resfig-species-10}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-10-model-NoSex-0}}{Figure \ref{fig:resfig-species-10}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Atlantic cod (species code 10).}\label{fig:resfig-species-10}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-12}}{Figure \ref{fig:fig-species-12}} 
+
+}
+
+\caption{Exploratory figure for White hake (species code 12).}\label{fig:fig-species-12}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-12-model-NoSex-0}}{Figure \ref{fig:resfig-species-12}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-12-model-NoSex-0}}{Figure \ref{fig:resfig-species-12}} 
+
+}
+
+\caption{Model NoSex-0 residuals for White hake (species code 12).}\label{fig:resfig-species-12}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-14}}{Figure \ref{fig:fig-species-14}} 
+
+}
+
+\caption{Exploratory figure for Silver hake (species code 14).}\label{fig:fig-species-14}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-14-model-NoSex-0}}{Figure \ref{fig:resfig-species-14}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-14-model-NoSex-0}}{Figure \ref{fig:resfig-species-14}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Silver hake (species code 14).}\label{fig:resfig-species-14}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-16}}{Figure \ref{fig:fig-species-16}} 
+
+}
+
+\caption{Exploratory figure for Pollock (species code 16).}\label{fig:fig-species-16}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-16-model-NoSex-0}}{Figure \ref{fig:resfig-species-16}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-16-model-NoSex-0}}{Figure \ref{fig:resfig-species-16}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Pollock (species code 16).}\label{fig:resfig-species-16}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-23}}{Figure \ref{fig:fig-species-23}} 
+
+}
+
+\caption{Exploratory figure for Redfish unidentified (species code 23).}\label{fig:fig-species-23}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-23-model-NoSex-0}}{Figure \ref{fig:resfig-species-23}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-23-model-NoSex-0}}{Figure \ref{fig:resfig-species-23}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Redfish unidentified (species code 23).}\label{fig:resfig-species-23}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-30}}{Figure \ref{fig:fig-species-30}} 
+
+}
+
+\caption{Exploratory figure for Atlantic halibut (species code 30).}\label{fig:fig-species-30}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-30-model-NoSex-0}}{Figure \ref{fig:resfig-species-30}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-30-model-NoSex-0}}{Figure \ref{fig:resfig-species-30}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Atlantic halibut (species code 30).}\label{fig:resfig-species-30}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-31}}{Figure \ref{fig:fig-species-31}} 
+
+}
+
+\caption{Exploratory figure for Greenland halibut (species code 31).}\label{fig:fig-species-31}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-31-model-NoSex-0}}{Figure \ref{fig:resfig-species-31}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-31-model-NoSex-0}}{Figure \ref{fig:resfig-species-31}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Greenland halibut (species code 31).}\label{fig:resfig-species-31}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-40}}{Figure \ref{fig:fig-species-40}} 
+
+}
+
+\caption{Exploratory figure for American plaice (species code 40).}\label{fig:fig-species-40}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-40-model-NoSex-0}}{Figure \ref{fig:resfig-species-40}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-40-model-NoSex-0}}{Figure \ref{fig:resfig-species-40}} 
+
+}
+
+\caption{Model NoSex-0 residuals for American plaice (species code 40).}\label{fig:resfig-species-40}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-41}}{Figure \ref{fig:fig-species-41}} 
+
+}
+
+\caption{Exploratory figure for Witch flounder (species code 41).}\label{fig:fig-species-41}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-41-model-NoSex-0}}{Figure \ref{fig:resfig-species-41}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-41-model-NoSex-0}}{Figure \ref{fig:resfig-species-41}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Witch flounder (species code 41).}\label{fig:resfig-species-41}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-42}}{Figure \ref{fig:fig-species-42}} 
+
+}
+
+\caption{Exploratory figure for Yellowtail flounder (species code 42).}\label{fig:fig-species-42}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-42-model-NoSex-0}}{Figure \ref{fig:resfig-species-42}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-42-model-NoSex-0}}{Figure \ref{fig:resfig-species-42}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Yellowtail flounder (species code 42).}\label{fig:resfig-species-42}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-43}}{Figure \ref{fig:fig-species-43}} 
+
+}
+
+\caption{Exploratory figure for Winter flounder (species code 43).}\label{fig:fig-species-43}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-43-model-NoSex-0}}{Figure \ref{fig:resfig-species-43}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-43-model-NoSex-0}}{Figure \ref{fig:resfig-species-43}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Winter flounder (species code 43).}\label{fig:resfig-species-43}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-50}}{Figure \ref{fig:fig-species-50}} 
+
+}
+
+\caption{Exploratory figure for Atlantic wolffish (species code 50).}\label{fig:fig-species-50}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-50-model-NoSex-0}}{Figure \ref{fig:resfig-species-50}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-50-model-NoSex-0}}{Figure \ref{fig:resfig-species-50}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Atlantic wolffish (species code 50).}\label{fig:resfig-species-50}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-60}}{Figure \ref{fig:fig-species-60}} 
+
+}
+
+\caption{Exploratory figure for Atlantic herring (species code 60).}\label{fig:fig-species-60}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-60-model-NoSex-0}}{Figure \ref{fig:resfig-species-60}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-60-model-NoSex-0}}{Figure \ref{fig:resfig-species-60}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Atlantic herring (species code 60).}\label{fig:resfig-species-60}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-63}}{Figure \ref{fig:fig-species-63}} 
+
+}
+
+\caption{Exploratory figure for Rainbow smelt (species code 63).}\label{fig:fig-species-63}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-63-model-NoSex-0}}{Figure \ref{fig:resfig-species-63}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-63-model-NoSex-0}}{Figure \ref{fig:resfig-species-63}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Rainbow smelt (species code 63).}\label{fig:resfig-species-63}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-64}}{Figure \ref{fig:fig-species-64}} 
+
+}
+
+\caption{Exploratory figure for Capelin (species code 64).}\label{fig:fig-species-64}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-64-model-NoSex-0}}{Figure \ref{fig:resfig-species-64}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-64-model-NoSex-0}}{Figure \ref{fig:resfig-species-64}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Capelin (species code 64).}\label{fig:resfig-species-64}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-70}}{Figure \ref{fig:fig-species-70}} 
+
+}
+
+\caption{Exploratory figure for Atlantic mackerel (species code 70).}\label{fig:fig-species-70}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-70-model-NoSex-0}}{Figure \ref{fig:resfig-species-70}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-70-model-NoSex-0}}{Figure \ref{fig:resfig-species-70}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Atlantic mackerel (species code 70).}\label{fig:resfig-species-70}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-112}}{Figure \ref{fig:fig-species-112}} 
+
+}
+
+\caption{Exploratory figure for Longfin hake (species code 112).}\label{fig:fig-species-112}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-112-model-NoSex-0}}{Figure \ref{fig:resfig-species-112}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-112-model-NoSex-0}}{Figure \ref{fig:resfig-species-112}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Longfin hake (species code 112).}\label{fig:resfig-species-112}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-114}}{Figure \ref{fig:fig-species-114}} 
+
+}
+
+\caption{Exploratory figure for Fourbeard rockling (species code 114).}\label{fig:fig-species-114}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-114-model-NoSex-0}}{Figure \ref{fig:resfig-species-114}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-114-model-NoSex-0}}{Figure \ref{fig:resfig-species-114}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Fourbeard rockling (species code 114).}\label{fig:resfig-species-114}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-118}}{Figure \ref{fig:fig-species-118}} 
+
+}
+
+\caption{Exploratory figure for Greenland cod (species code 118).}\label{fig:fig-species-118}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-118-model-NoSex-0}}{Figure \ref{fig:resfig-species-118}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-118-model-NoSex-0}}{Figure \ref{fig:resfig-species-118}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Greenland cod (species code 118).}\label{fig:resfig-species-118}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-122}}{Figure \ref{fig:fig-species-122}} 
+
+}
+
+\caption{Exploratory figure for Cunner (species code 122).}\label{fig:fig-species-122}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-122-model-NoSex-0}}{Figure \ref{fig:resfig-species-122}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-122-model-NoSex-0}}{Figure \ref{fig:resfig-species-122}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Cunner (species code 122).}\label{fig:resfig-species-122}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-143}}{Figure \ref{fig:fig-species-143}} 
+
+}
+
+\caption{Exploratory figure for Windowpane flounder (species code 143).}\label{fig:fig-species-143}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-143-model-NoSex-0}}{Figure \ref{fig:resfig-species-143}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-143-model-NoSex-0}}{Figure \ref{fig:resfig-species-143}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Windowpane flounder (species code 143).}\label{fig:resfig-species-143}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-201}}{Figure \ref{fig:fig-species-201}} 
+
+}
+
+\caption{Exploratory figure for Thorny skate (species code 201).}\label{fig:fig-species-201}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-201-model-NoSex-0}}{Figure \ref{fig:resfig-species-201}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-201-model-NoSex-0}}{Figure \ref{fig:resfig-species-201}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Thorny skate (species code 201).}\label{fig:resfig-species-201}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-202}}{Figure \ref{fig:fig-species-202}} 
+
+}
+
+\caption{Exploratory figure for Smooth skate (species code 202).}\label{fig:fig-species-202}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-202-model-NoSex-0}}{Figure \ref{fig:resfig-species-202}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-202-model-NoSex-0}}{Figure \ref{fig:resfig-species-202}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Smooth skate (species code 202).}\label{fig:resfig-species-202}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-204}}{Figure \ref{fig:fig-species-204}} 
+
+}
+
+\caption{Exploratory figure for Winter skate (species code 204).}\label{fig:fig-species-204}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-204-model-NoSex-0}}{Figure \ref{fig:resfig-species-204}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-204-model-NoSex-0}}{Figure \ref{fig:resfig-species-204}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Winter skate (species code 204).}\label{fig:resfig-species-204}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-220}}{Figure \ref{fig:fig-species-220}} 
+
+}
+
+\caption{Exploratory figure for Spiny dogfish (species code 220).}\label{fig:fig-species-220}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-220-model-NoSex-0}}{Figure \ref{fig:resfig-species-220}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-220-model-NoSex-0}}{Figure \ref{fig:resfig-species-220}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Spiny dogfish (species code 220).}\label{fig:resfig-species-220}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-300}}{Figure \ref{fig:fig-species-300}} 
+
+}
+
+\caption{Exploratory figure for Longhorn sculpin (species code 300).}\label{fig:fig-species-300}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-300-model-NoSex-0}}{Figure \ref{fig:resfig-species-300}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-300-model-NoSex-0}}{Figure \ref{fig:resfig-species-300}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Longhorn sculpin (species code 300).}\label{fig:resfig-species-300}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-610}}{Figure \ref{fig:fig-species-610}} 
+
+}
+
+\caption{Exploratory figure for Northern sand lance (species code 610).}\label{fig:fig-species-610}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-610-model-NoSex-0}}{Figure \ref{fig:resfig-species-610}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-610-model-NoSex-0}}{Figure \ref{fig:resfig-species-610}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Northern sand lance (species code 610).}\label{fig:resfig-species-610}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-2550}}{Figure \ref{fig:fig-species-2550}} 
+
+}
+
+\caption{Exploratory figure for American lobster (species code 2550).}\label{fig:fig-species-2550}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-2550-model-NoSex-0}}{Figure \ref{fig:resfig-species-2550}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-2550-model-NoSex-0}}{Figure \ref{fig:resfig-species-2550}} 
+
+}
+
+\caption{Model NoSex-0 residuals for American lobster (species code 2550).}\label{fig:resfig-species-2550}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/exploratory-plot-species-2526}}{Figure \ref{fig:fig-species-2526}} 
+
+}
+
+\caption{Exploratory figure for Snow crab (species code 2526).}\label{fig:fig-species-2526}
+\end{figure}
+\clearpage
+
+
+\begin{figure}[htb]
+
+{\centering \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-length-species-2526-model-NoSex-0}}{Figure \ref{fig:resfig-species-2526}} \pdftooltip{\includegraphics[width=6in]{./figure/residuals-vs-year-species-2526-model-NoSex-0}}{Figure \ref{fig:resfig-species-2526}} 
+
+}
+
+\caption{Model NoSex-0 residuals for Snow crab (species code 2526).}\label{fig:resfig-species-2526}
 \end{figure}
 \clearpage
 
@@ -341,7 +944,7 @@ Froese et al. (\citeproc{ref-Froese-etal-2014}{2014})
 
 \noindent \vspace{-2em} \setlength{\parindent}{-0.2in} \setlength{\leftskip}{0.2in} \setlength{\parskip}{8pt}
 
-\phantomsection\label{refs}
+\protect\phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
 \bibitem[\citeproctext]{ref-Aydin-2018}
 Aydin, M. 2018. Length-weight relationships and condition factors of five crab species ({D}ecapoda) in the {B}lack {S}ea. Pakistan J. Zool. 50: 1519--1524.
@@ -364,14 +967,17 @@ Jin, S., Yan, H., Xiaodongand Zhang, and Fan, W. 2015. Weight--length relationsh
 \bibitem[\citeproctext]{ref-Kulbicki-etal-2005}
 Kulbicki, M., Guillemot, N., and Amand, M. 2005. A general approach to length-weight relationships for {N}ew {C}aledonian lagoon fishes. Cybium 29: 235--252.
 
-\bibitem[\citeproctext]{ref-Lai-Hesler-2004}
-Lai, H.-L., and Helser, T. 2004. \link{https://doi.org/10.1016/j.fishres.2004.08.014}{Linear mixed-effects models for weight--length relationships}. Fisheries Research 70(2): 377--387.
-
-\bibitem[\citeproctext]{ref-Ma-etal-2017}
-Ma, Q., Y., J., and Ren, Y. 2017. \link{https://doi.org/10.1371/journal.pone.0171811}{Linear mixed-effects models to describe length-weight relationships for yellow croaker (\emph{{L}arimichthys polyactis}) along the north coast of {C}hina}. PLoS One.
+\bibitem[\citeproctext]{ref-McGillycuddy-etal-2025}
+McGillycuddy, M., Warton, D.I., Popovic, G., and Bolker, B.M. 2025. \link{https://doi.org/10.18637/jss.v112.i01}{Parsimoniously fitting large multivariate random effects in {glmmTMB}}. Journal of Statistical Software 112(1): 1--19.
 
 \bibitem[\citeproctext]{ref-Pauly-etal-2022}
 Pauly, D., Matsushige, L., Malacane, J., Hay, A., Chu, E., and Warren, M. 2022. Length--weight relationships and growth parameters of common and leafy seadragons ({S}yngnathidae) from a public aquarium. Fishes.
+
+\bibitem[\citeproctext]{ref-cite-R}
+R Core Team. 2026. \link{https://doi.org/10.32614/R.manuals}{R: A language and environment for statistical computing}. R Foundation for Statistical Computing, Vienna, Austria.
+
+\bibitem[\citeproctext]{ref-sas-citation}
+SAS Institute Inc. 2026. \link{https://www.sas.com/}{SAS 9.4 for {W}indows}. SAS Institute Inc., Cary, NC.
 
 \bibitem[\citeproctext]{ref-Yin-etal-2022}
 Yin, Y., Sameoto, J.A., Keith, D.M., and Mills Flemming, J. 2022. Improving estimation of length--weight relationships using spatiotemporal models. Can. J. Fish. Aquat. Sci. 79: 1896--1910.
