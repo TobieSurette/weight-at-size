@@ -2,57 +2,32 @@
 
 ## Exploratory analyses
 
-The empirical weight-at-size estimates are presented for the list of taxa in Table \@ref(tab:tabletaxa). For each taxon, a figure showing the distribution of measured weight at given lengths over time. 
-
+Weight-at-size are presented for the list of taxa in Table \@ref(tab:tabletaxa). 
+For each taxon, a multi-panel figure showing the relationship between observed lengths and weights are provided. 
+For taxa where sex-specific information is available, the weight-at-size relationships are presented separately for each sex. 
+For taxa where size classes are used in the modelling, the weight-at-size relationships are presented separately for each size class. 
 
 
 ## Allometric function
 
-The length-weight relationship we use is the following:
+The weight-at-size relationship used is the following:
 \begin{equation}
 W = \alpha L^{\beta}
 \end{equation}
-where $W$ is weight, $L$ is length, and $a$ and $b$ are the allometric parameters to be estimated.
+where $W$ is observed weight in grams, $L$ is the length in centimeters, and $a$ and $b$ are the allometric parameters to be estimated. 
+It is common to log transform this relationship to make it linear:
+\begin{equation}
+log(W) = log(\alpha) +  \beta log(L)
+\end{equation}
+The parameter $log(\alpha)$ is referred to as the "$a$" parameter, and $\beta$ is referred to as the "$b$" parameter. 
 
-Individual fish observations of length-weight pairs are used to estimate model parameters.
-
-The units of length and weight will influence the parameter values, so in all analyses presented, lengths are in centimeters and weights are in grams.
-
-
-## Sequential approach
-
-For each taxon examined, the number of available paired observations of weight and size, and the range of their observed measurements, will determine whether a more complex model can be estimated.
-
-
-A minimum number of samples must be available in order to meaningfully estimate $a$ and $b$ parameters. The available length information must also cover a wide range of lengths so that estimated parameter values can be used in predictions.
-
-
-Sequential approach
-
-1. Full Model: sex- and time-dependent relationship
-2. time-dependent relationship
-3. sex-dependent relationship
-4. overall relationship, sex-independent and time-independent
-
-The models considered can be found in Table \@ref(tablemodels).
-
+Individual fish observations of length-weight pairs are used to estimate model parameters. 
 
 ## Mixed effects models
 
-To estimate sex and year effects on the length-weight relationship, a mixed effects framework is adopted to analyse the available individual observations of fish length-weight pairs. For species with no sex-specific observations, yearly effects are added to both parameters:
-
-\begin{equation}
-W =  \left(\alpha +\delta^{\alpha}_{y}\right)L^{\left(\beta +\delta^{\beta}_{y} \right)}
-\end{equation}
-
-For species with sex-specific observations, yearly and sex effects are added to both parameters:
-
-\begin{equation}
-W =  \left(\alpha +\delta^{\alpha}_{ys}\right)L^{\left(\beta +\delta^{\beta}_{ys} \right)}
-\end{equation}
-
-
-Models are implemented using the *lme4* R package.
+To allow for sex, size and year effects on the weight-at-size relationship, a mixed effects framework is adopted to analyse the available individual observations of length-weight pairs. 
+The models considered appear in Table \@ref(tab:tablemodels). 
+Models are implemented using the *glmmTMB* R package [@McGillycuddy-etal-2025] using R 4.6.0 [@cite-R].
 
 ## Southern Gulf of St. Lawrence ecosystem survey
 
@@ -60,12 +35,20 @@ Observations of fish and invertebrate taxa collected during the annual southern 
 
 The taxa used in the analyses appear in Table \@ref(tab:tabletaxa).
 
+### Model selection
+
+
+### Bias and precision of predicted weights 
+
+To determine the appropriateness of fitted models in predicting weight-at-size, residual plots are presented.
+
+
 ### Annual update of length-weight parameter estimates
 
-The analyses presented herein are encapsulated in an R function that allows for an annual update of the estimated values for each taxon.
+The analyses presented herein are encapsulated in an R script that allows for an annual update of the estimated values for each taxon. 
 
-
-## Estimates obtained from SAS 
-A SAS script was developed by scientists at Fisheries and Oceans Canada to estimate the parameters of the relationship between weight and length. This script manually removed outliers for different taxa and also assigns each taxon to the type of estimates that will be calculated. The values derived from this script can be found in Table \@ref(tab:SASestimates) (Appendix \@ref(app:first-appendix))
-
+## Comparison with estimates obtained from SAS 
+A SAS script was developed by scientists at Fisheries and Oceans Canada to estimate the parameters of the relationship between weight and length. 
+This script manually removed outliers for different taxa and also assigns each taxon to the type of estimates that will be calculated. 
+The values derived from this script can be found in Table \@ref(tab:SASestimates) (Appendix \@ref(app:first-appendix))
 

@@ -1,16 +1,12 @@
 # Results
 
-## Sex and year effects
-Taxon listed in Table \@ref(tab:tableresults1).
 
-## Sex effects
-Taxon listed in Table \@ref(tab:tableresults1).
+## Taxon-specific model predictions
 
-## Year effects
-Taxon listed in Table \@ref(tab:tableresults1).
+AIC and BIC values of weight-at-size models can be found in Table \@ref(tab:tablemodelsfits).
 
-## Species-specific model predictions
-Overall length-weight relationship parameters can be found in Table \@ref(tab:tableresults4).
 
 ## Comparison to previous estimates obtained in SAS
 
+The length-weight regression parameters that were obtained by the SAS scripts sometimes led to biased weight predictions, especially at large lengths. 
+To exemplify the superiority of our approach, we present a few selected cases where the mixed effects approach resolves biases that were present in the relationships estimated in SAS.

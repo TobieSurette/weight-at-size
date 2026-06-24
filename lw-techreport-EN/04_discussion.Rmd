@@ -4,12 +4,20 @@ The values of $a$ and $b$ parameters are used to flag erroneous lengths and weig
 
 The predicted weights obtained from the fitted model are used in computations of biomass indices based on individual length observations. 
 
-If the yearly changes in estimated values of $a$ and $b$ are auto-correlated, it may be indicative of gradual changes in condition. An alternative modelling approach that accounts for this auto-correlation should be investigated.
+If the yearly changes in estimated values of $a$ and $b$ are auto-correlated, it may be indicative of gradual changes in condition. 
+An alternative modelling approach that accounts for this auto-correlation should be investigated.
 
 The availability of a sufficient number of samples is key to estimating a meaningful length-weight relationship.
 
-Discuss the use of base 10 logarithm versus natural logarithm
+The use of base 10 logarithm that was implemented in the SAS scripts does not provide any advantage when compared to using natural logarithm. 
+The resulting length-weight relationship will be the same but its parameter estimates will have different values. 
+
 
 @Froese-etal-2014
+
+The framework developed and presented here provides a defensible and appropriate method to obtain robust length-weight regressions model estimates. 
+The predicted weights obtained from the fitted models leverage all available information while employing contemporary statistical methods. 
+
+The encapsulation of the methods within a script provides an elegant way to update these indices yearly, as new information becomes available. 
 
 \clearpage

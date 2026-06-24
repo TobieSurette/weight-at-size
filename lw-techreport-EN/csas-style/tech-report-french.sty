@@ -257,6 +257,7 @@
 \newcommand{\trCitation}{
 \begin{hangparas}{1em}{1}
 \trAuthsBack{} \trYear{}. \trTitle{}. Rapp. tech. can. sci. halieut. aquat. \trReportNum{}: \pageref{TRlastRoman}{}\,+\,\pageref{LastPage}{}\,p.
+\link{https://doi.org/\trDOI}{https://doi.org/\trDOI}
 \end{hangparas}}
 
 %%%%% Frontmatter %%%%%
@@ -377,8 +378,9 @@ par
 % Fourth page: Colophon
 \vspace*{\fill}
 \begin{center}
-\copyright{} Sa Majest\'{e} la Roi du chef du Canada, repr\'{e}sent\'{e} par le ministre\\ du minist\`{e}re des P\^{e}ches et des Oc\'{e}ans, \trYear{}\\
-N° de cat. Fs97-6/\trReportNum{}F-PDF \quad ISBN \trISBN{} \quad ISSN 1488-545X
+\copyright{} Sa Majest\'{e} la Roi du chef du Canada, repr\'{e}sent\'{e} par le ministre du minist\`{e}re des\\ P\^{e}ches et des Oc\'{e}ans, \trYear{}\\
+N° de cat. Fs97-6/\trReportNum{}F-PDF \quad ISBN \trISBN{} \quad ISSN 1488-545X\\
+\link{https://doi.org/\trDOI}{https://doi.org/\trDOI}
 \end{center}
 \par
 \bigskip
@@ -409,7 +411,11 @@ On doit citer la publication comme suit:
 \trResume{}
 \clearpage
 \section*{ABSTRACT}\addcontentsline{toc}{section}{ABSTRACT}
-\trCitation{}
+
+\begin{hangparas}{1em}{1}
+\trCitationFrench{}
+\end{hangparas}
+
 \bigskip
 \trAbstract{}
 \label{TRlastRoman}
@@ -479,3 +485,16 @@ On doit citer la publication comme suit:
 %   \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
 %   {\par}
 % % END-PANDOC-BEFORE-3.1.7
+
+%% ------------------------------------------------------------------------------
+%% Allows a box to be drawn around paragraphs with verbatim text (listing)
+%% Used for tagging paragraphs that need translation
+\usepackage{listings}
+\lstset{
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true
+}
+
+\newsavebox{\userinput}
+%% ------------------------------------------------------------------------------
