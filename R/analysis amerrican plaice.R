@@ -9,6 +9,11 @@ remove.outliers <- TRUE
 
 # Read and format data:
 x <- read.gulf.bio(year = years, password = password, species = 40)
+
+# Look at rounding pattern among small fish:
+plot(jitter(x$length, amount = 0.5), jitter(x$weight, amount = 0.5), 
+     xlim = c(0, 30), ylim = c(0, 150), cex = 0.2, col = fade("grey20", 0.25))
+
 x <- x[which((x$weight > 0) & (x$weight < 4000)), ]
 x <- x[which((x$length > 0) & (x$length < 70)), ]
 x$log.length <- log(x$length)
