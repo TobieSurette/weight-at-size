@@ -23,6 +23,7 @@ bio$weight <- (bio$weight.upper + bio$weight.lower) / 2
 bio$precision.weight <- (bio$weight.upper - bio$weight.lower) / 2
 
 # Residual filter to remove obvious outliers:
+model <- lm(log(bio$weight) ~ log(bio$length))
 bio <- bio[abs(residuals(model, type = "pearson")) < 1, ]
 #bio <- bio[sort(sample(1:nrow(bio), 5000)), ]
 
@@ -179,67 +180,8 @@ t <- table(bio$length, bio$year, bio$sex)
 p <- t[,,1] / apply(t, 1:2, sum)
 image(as.numeric(rownames(p)), 1971:2024,  p, col = rainbow(100))
 
-
-tmp <- aggregate(bio["weight"], by = bio[c("length", "year")], median)
-weights <- 0:max(bio$weight)
-lens    <- 0:max(bio$length)
-years   <- min(bio$year):max(bio$year)
-res <- array(NA, dim = c(length(lens), length(weights)))
-
-plot(sim[, "beta.mu"])
-plot(sim[, "log.alpha.mu"])
-plot(sim[, "log.alpha.mu"], sim[, "beta.mu"])
-
-clg()
-plot(log(c(1, 50)), log(c(1, 1000)))
-points(log(jitter(bio$len, amount = 0.5)), log(jitter(bio$weight, amount = 0.5)), cex = 0.1)
-for (i in 1:54){
-   log.alpha <- mean(sim[, paste0("log.alpha[", i, "]")])
-   beta <- mean(sim[, paste0("beta[", i, "]")])
-   lines(log(lens), log.alpha + beta * log(lens), col = fade("red", 0.25))
+plot(c(10, 40), c(0, 1), type = "n", xaxs = "i", yaxs = "i")
+for (j in 1:ncol(p)){
+   lines(as.numeric(rownames(p)), p[, j], col = rainbow(ncol(p))[j], lwd = 2)
 }
-
-model <- lm(log(bio$weight) ~ log(bio$length))
-lines(log(lens), coef(model)[1] + coef(model)[2] * log(lens), col = fade("green", 0.5), lwd = 2)
-
-residuals <- log(bio$weight) - (coef(model)[1] + coef(model)[2] * log(bio$length))
-
-
-ix <- bio$sex == 1
-t <- aggregate(residuals[ix], by = bio[ix, c("length", "year")], mean)
-
-plot(residuals[order(bio$year)], cex = 0.25)
-
-boxplot(residuals ~ bio$year, ylim = c(-0.5, 0.5))
-hline(0, col = "red", lwd = 2)
-
-lens    <- 0:max(bio$length)
-years   <- min(bio$year):max(bio$year)
-res <- matrix(NA, nrow = length(lens), ncol = length(years))
-dimnames(res) <- list(length = lens, year = years)
-for (i in 1:length(years)){
-   ix <- which(t[, "year"] == years[i])
-   res[as.character(t[ix, 1]), i] <- t[ix, 3]
-}
-#res[res > 0.7] <- NA
-logit <- function(x) log(x / (1-x))
-cols <- colorRampPalette(c("red", "white", "blue"))(50)
-image(years, lens, t(res), col = cols, zlim = c(-0.4, 0.4), 
-      xlim = c(min(years)-0.5, max(years)+0.5), xaxs = "i",
-      ylim = c(0, 50), yaxs = "i", xlab = "", ylab = "")
-mtext("Year", 1, 2.5, font = 2, cex = 1.25)
-mtext("Length (cm)", 2, 2.5, font = 2, cex = 1.25)
-box(col = "grey50")
-   
-t <- aggregate(bio$sex, by = bio[c("length", "year")], function(x) length(which(x == 1)) / length(which(x %in% 1:2)))
-lens    <- 0:max(bio$length)
-years   <- min(bio$year):max(bio$year)
-res <- matrix(NA, nrow = length(lens), ncol = length(years))
-dimnames(res) <- list(length = lens, year = years)
-for (i in 1:length(years)){
-   ix <- which(t[, "year"] == years[i])
-   res[as.character(t[ix, 1]), i] <- t[ix, 3]
-}
-res[res > 0.7] <- NA
-logit <- function(x) log(x / (1-x))
-image(years, lens, t(res), col = rev(heat.colors(50)))
+hline(0.5, lwd = 2, col = "red")
